@@ -14,7 +14,6 @@ export const ActiveSectionContext = createContext<ActiveSectionContextInterface>
 
 export const ActiveSectionProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeSection, setActiveSection] = useState<SectionName | null>(null);
-  console.log(activeSection);
   return (
     <ActiveSectionContext.Provider value={{ activeSection, setActiveSection }}>
       {children}

@@ -1,9 +1,17 @@
 {
   "altLanguage": "English",
   "sections": {
-    "about": "À propos de moi",
-    "skills": "Compétences",
-    "projects": "Projets",
-    "contact": "Contactez-moi"
+    "about": {
+      "title": "À propos de moi"
+    },
+    "skills": {
+      "title": "Compétences"
+    },
+    "projects": {
+      "title": "Projets"
+    },
+    "contact": {
+      "title": "Contactez-moi"
+    }
   }
 }

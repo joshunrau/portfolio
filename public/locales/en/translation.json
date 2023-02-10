@@ -1,9 +1,19 @@
 {
   "altLanguage": "Français",
   "sections": {
-    "about": "About",
-    "skills": "Skills",
-    "projects": "Projects",
-    "contact": "Contact"
+    "about": {
+      "title": "About",
+      "heading": "Hi, I'm Josh",
+      "subHeading": "I build things for the web"
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "projects": {
+      "title": "Projects"
+    },
+    "contact": {
+      "title": "Contact"
+    }
   }
 }
