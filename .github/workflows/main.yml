@@ -1,0 +1,22 @@
+name: NodeJS with Webpack
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup
+      uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
+        node-version: '18.x'
+    - name: Install
+      run: yarn install --frozen-lockfile
+    - name: Build
+      run: yarn build
