@@ -1,2 +1,5 @@
 # Portfolio
-Personal Portfolio Website
+
+## About
+
+This is my personal website, built using React.
