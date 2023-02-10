@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: Build and Deploy
 
 on:
   push:
@@ -11,12 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Setup
+    - name: Setup Node
       uses: actions/setup-node@v3
       with:
         cache: 'yarn'
         node-version: '18.x'
-    - name: Install
+    - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Build
       run: yarn build
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+    - name: Upload Artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: 'dist'
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
