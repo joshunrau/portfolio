@@ -10,7 +10,7 @@ export const About = () => {
 
   return (
     <Section name="about">
-      <div className="grid grid-cols-2 gap-5 h-full">
+      <div className="grid h-full grid-cols-2 gap-5">
         <div className="flex flex-col justify-center">
           <h1>{t('heading')}</h1>
           <h3>{t('subHeading')}</h3>

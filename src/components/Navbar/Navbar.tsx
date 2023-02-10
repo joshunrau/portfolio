@@ -11,8 +11,8 @@ export const Navbar = () => {
   const handleToggle = () => setIsToggled(!isToggled);
 
   return (
-    <header className="absolute bg-slate-900/50 w-full h-16 backdrop-blur-lg">
-      <div className="container flex items-center justify-between border h-full">
+    <header className="absolute h-16 w-full bg-slate-900/50 backdrop-blur-lg">
+      <div className="container flex h-full items-center justify-between border">
         <h3 className="text-2xl">Joshua Unrau</h3>
         <button>
           <HiBars3 className="h-6 md:hidden" />
