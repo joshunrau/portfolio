@@ -1,10 +1,10 @@
 import React, { createContext, useState } from 'react';
 
-type ActiveSectionType = 'home' | 'about';
+import { SectionName } from '@/components/Section';
 
 interface ActiveSectionContextInterface {
-  activeSection: ActiveSectionType | null;
-  setActiveSection: (activeSection: ActiveSectionType) => void;
+  activeSection: SectionName | null;
+  setActiveSection: (activeSection: SectionName) => void;
 }
 
 export const ActiveSectionContext = createContext<ActiveSectionContextInterface>({
@@ -13,8 +13,7 @@ export const ActiveSectionContext = createContext<ActiveSectionContextInterface>
 });
 
 export const ActiveSectionProvider = ({ children }: { children: React.ReactNode }) => {
-  const [activeSection, setActiveSection] = useState<ActiveSectionType | null>(null);
-
+  const [activeSection, setActiveSection] = useState<SectionName | null>(null);
   return (
     <ActiveSectionContext.Provider value={{ activeSection, setActiveSection }}>
       {children}

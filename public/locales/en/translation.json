@@ -1,10 +1,19 @@
 {
-  "greeting": "Hi, I'm Josh",
-  "slogan": "I build websites.",
-  "sectionNames": {
-    "about": "About",
-    "skills": "Skills",
-    "projects": "Projects",
-    "contact": "Contact"
+  "altLanguage": "Français",
+  "sections": {
+    "about": {
+      "title": "About",
+      "heading": "Hi, I'm Josh",
+      "subHeading": "I build things for the web"
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "projects": {
+      "title": "Projects"
+    },
+    "contact": {
+      "title": "Contact"
+    }
   }
 }
