@@ -4,6 +4,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:storybook/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier'
@@ -41,7 +42,12 @@ module.exports = {
       }
     ],
     'no-alert': 'error',
-    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-console': [
+      'error',
+      {
+        allow: ['warn', 'error']
+      }
+    ],
     'react/function-component-definition': [
       'error',
       {
