@@ -1,7 +1,6 @@
 {
-  "greeting": "Bonjour, je m'appelle Josh",
-  "slogan": "Je crée des sites web",
-  "sectionNames": {
+  "altLanguage": "English",
+  "sections": {
     "about": "À propos de moi",
     "skills": "Compétences",
     "projects": "Projets",

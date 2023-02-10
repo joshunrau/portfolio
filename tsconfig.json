@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
+    "typeRoots": ["node_modules/@types", "src/typings"],
     "useDefineForClassFields": true
   }
 }

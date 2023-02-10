@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Banner } from './components/Banner';
 import { Navbar } from './components/Navbar';
+import { Section } from './components/Section';
 import { ActiveSectionProvider } from './context/ActiveSection';
 
 export const App = () => {
@@ -10,8 +10,13 @@ export const App = () => {
       <header>
         <Navbar />
       </header>
-      <main>
-        <Banner />
+      <main className="h-full overflow-y-scroll">
+        <Section name="about">
+          <h1>About</h1>
+        </Section>
+        <Section name="skills">
+          <h1>Skills</h1>
+        </Section>
       </main>
     </ActiveSectionProvider>
   );
