@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { App } from './App';
+import './services/i18next';
 import './styles.css';
 
 const root = document.getElementById('root')!;

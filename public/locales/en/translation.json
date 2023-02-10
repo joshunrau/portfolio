@@ -1,0 +1,10 @@
+{
+  "greeting": "Hi, I'm Josh",
+  "slogan": "I build websites.",
+  "sectionNames": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  }
+}
