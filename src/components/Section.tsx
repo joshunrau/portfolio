@@ -23,7 +23,7 @@ export const Section = ({ name, children, ...props }: SectionProps) => {
   }, [isVisible]);
 
   return (
-    <section className="h-full container" id={name} ref={ref} {...props}>
+    <section className="container h-full" id={name} ref={ref} {...props}>
       {children}
     </section>
   );
