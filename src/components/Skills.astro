@@ -2,13 +2,41 @@
 import Section from "@/layouts/Section.astro";
 import skillsIcon from "@/assets/skills-filler.svg";
 
-import Skill from "./Skill.astro";
 import jsIcon from "@/assets/javascript.svg";
 import linuxIcon from "@/assets/linux.svg";
+
+type Skill = {
+  label: string;
+  icon: ImageMetadata;
+};
+
+const skills: Skill[] = [
+  {
+    label: "JavaScript",
+    icon: jsIcon
+  },
+  {
+    label: "Linux",
+    icon: linuxIcon
+  }
+];
 ---
 
 <Section image={{ alt: "placeholder", meta: skillsIcon }}>
   <h1>Skills</h1>
-  <Skill label="JavaScript" icon={jsIcon} />
-  <Skill label="Linux" icon={linuxIcon} />
+  <div id="skills-showcase">
+    {
+      skills.map(({ label, icon }) => (
+        <div class="skill w-16">
+          <img alt={label} {...icon} />
+          <span>{label}</span>
+        </div>
+      ))
+    }
+  </div>
 </Section>
+
+<script>
+  const container = document.getElementById("skills-showcase");
+  console.log(container);
+</script>
