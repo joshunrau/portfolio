@@ -1,58 +1,53 @@
 ---
-import type { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
 import Skills from "@/components/Skills.astro";
+
+import avatar from "@/assets/avatar.png";
 
 import "@fontsource/lato/100.css";
 import "@fontsource/lato/300.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
-import '@fontsource-variable/montserrat';
+import "@fontsource-variable/montserrat";
+import { languages, useTranslations } from "@/i18n";
 
-export async function getStaticPaths() {
-  const pages = [
-    {
-      lang: "en",
-      description: "Personal Portfolio of Joshua Unrau",
-      title: "Joshua Unrau - Personal Portfolio"
-    },
-    {
-      lang: "fr",
-      description: "Portfolio personnel de Joshua Unrau",
-      title: "Joshua Unrau - Portfolio personnel"
-    }
-  ];
-  return pages.map(({ lang, description, title }) => {
-    return {
-      params: { lang },
-      props: {
-        author: "Joshua Unrau",
-        description,
-        keywords: ["Joshua", "Unrau"],
-        title
-      }
-    };
-  });
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
 }
 
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { resolvedLanguage, t } = useTranslations(Astro.url);
+const url = "https://joshuaunrau.com/" + resolvedLanguage;
 
-const { lang } = Astro.params as Params;
-const { author, description, keywords, title } = Astro.props as Props;
 ---
 
-<html lang={lang}>
+<html lang={resolvedLanguage}>
   <head>
+    <!-- Page Metadata -->
     <meta charset="utf-8" />
+    {
+      Object.keys(languages).map((lang) => (
+        <link rel="alternate" href={"https://joshuaunrau.com/" + lang} hreflang={lang} />
+      ))
+    }
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="author" content={author} />
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords.join(", ")} />
-    <title>{title}</title>
+    <meta name="author" content="Joshua Unrau" />
+    <meta name="description" content={t("meta.description")} />
+    <meta name="keywords" content="Joshua, Unrau" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Joshua Unrau" />
+    <meta property="og:description" content={t("meta.description")} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:locale" content={resolvedLanguage} />
+    <meta property="og:locale:alternate" content={resolvedLanguage === "en" ? "fr" : "en"} />
+    <meta property="og:image" content={avatar.src} />
+    <meta property="og:image:alt" content={t("hero.avatar")} />
+    <meta property="og:image:height" content={avatar.height.toString()} />
+    <meta property="og:image:width" content={avatar.width.toString()} />
+    <title>{t("meta.title")}</title>
   </head>
   <body class="flex h-screen flex-col bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
     <Header />
