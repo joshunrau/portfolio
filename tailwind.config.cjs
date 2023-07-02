@@ -22,7 +22,7 @@ module.exports = {
     },
     fontFamily: {
       display: ["Lato", ...defaultTheme.fontFamily.sans],
-      sans: ["Montserrat", ...defaultTheme.fontFamily.sans]
+      sans: ["Montserrat Variable", ...defaultTheme.fontFamily.sans]
     }
   },
   plugins: [require("@tailwindcss/container-queries")]

@@ -4,6 +4,12 @@ import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
 import Skills from "@/components/Skills.astro";
 
+import "@fontsource/lato/100.css";
+import "@fontsource/lato/300.css";
+import "@fontsource/lato/400.css";
+import "@fontsource/lato/700.css";
+import '@fontsource-variable/montserrat';
+
 export async function getStaticPaths() {
   const pages = [
     {
@@ -54,8 +60,5 @@ const { author, description, keywords, title } = Astro.props as Props;
       <Hero />
       <Skills />
     </main>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
-    </style>
   </body>
 </html>
