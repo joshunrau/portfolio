@@ -1,4 +1,6 @@
 ---
+import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from "astro";
+
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
 import Skills from "@/components/Skills.astro";
@@ -10,26 +12,29 @@ import "@fontsource/lato/300.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
 import "@fontsource-variable/montserrat";
-import { languages, useTranslations } from "@/i18n";
+import { useTranslations } from "@/i18n";
 
-export function getStaticPaths() {
-  return Object.keys(languages).map((lang) => ({ params: { lang } }));
-}
+export const getStaticPaths = (() => {
+  return [
+    { params: { locale: undefined }, props: { url: "https://joshuaunrau.com" } },
+    { params: { locale: "fr" }, props: { url: "https://joshuaunrau.com/fr" } }
+  ];
+}) satisfies GetStaticPaths;
 
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { url } = Astro.props;
 const { resolvedLanguage, t } = useTranslations(Astro.url);
-const url = "https://joshuaunrau.com/" + resolvedLanguage;
 
+console.log(Astro.url);
 ---
 
 <html lang={resolvedLanguage}>
   <head>
-    <!-- Page Metadata -->
     <meta charset="utf-8" />
-    {
-      Object.keys(languages).map((lang) => (
-        <link rel="alternate" href={"https://joshuaunrau.com/" + lang} hreflang={lang} />
-      ))
-    }
+    <link rel="alternate" href="https://joshuaunrau.com" hreflang="en" />
+    <link rel="alternate" href="https://joshuaunrau.com/fr" hreflang="fr" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />

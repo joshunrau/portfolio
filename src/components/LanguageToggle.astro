@@ -1,5 +1,5 @@
 ---
-import { languages, useTranslations } from "../i18n";
+import { useTranslations } from "../i18n";
 import ChevronDownIcon from "./ChevronDownIcon.astro";
 
 const { resolvedLanguage } = useTranslations(Astro.url);
@@ -18,16 +18,18 @@ const { resolvedLanguage } = useTranslations(Astro.url);
     class="absolute mt-1 hidden w-full rounded-md bg-white shadow-xl ring-1 ring-black ring-opacity-10 dark:bg-slate-800"
     id="language-toggle-dropdown"
   >
-    {
-      Object.keys(languages).map((lang) => (
-        <a
-          class="block cursor-pointer p-2 text-center uppercase first:rounded-t-md last:rounded-b-md hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
-          href={`/${lang}`}
-        >
-          {lang}
-        </a>
-      ))
-    }
+    <a
+      class="block cursor-pointer p-2 text-center uppercase first:rounded-t-md last:rounded-b-md hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
+      href='/'
+    >
+      EN
+    </a>
+    <a
+      class="block cursor-pointer p-2 text-center uppercase first:rounded-t-md last:rounded-b-md hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
+      href='/fr'
+    >
+      FR
+    </a>
   </div>
 </div>
 <script>
