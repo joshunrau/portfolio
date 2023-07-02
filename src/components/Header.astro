@@ -3,7 +3,7 @@ import { useTranslations } from "../i18n";
 import ChevronDownIcon from "./ChevronDownIcon.astro";
 import MoonIcon from "./MoonIcon.astro";
 
-const { locale, t } = useTranslations(Astro.url);
+const { resolvedLanguage, t } = useTranslations(Astro.url);
 ---
 
 <header class="bg-white text-slate-700 shadow dark:bg-slate-800 dark:text-slate-300">
@@ -22,7 +22,7 @@ const { locale, t } = useTranslations(Astro.url);
           class="flex items-center justify-center rounded-md p-2 hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
           type="button"
         >
-          <span class="uppercase">{locale}</span>
+          <span class="uppercase">{resolvedLanguage}</span>
           <ChevronDownIcon class="ml-1 h-4 w-4" />
         </button>
       </div>

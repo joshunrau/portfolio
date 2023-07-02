@@ -6,13 +6,13 @@ export const languages = {
   fr: "Français"
 };
 
-export type Locale = keyof typeof languages;
+export type Language = keyof typeof languages;
 
-export const defaultLang = "en" satisfies Locale;
+export const defaultLang = "en" satisfies Language;
 
-export const translations: Record<Locale, Partial<typeof en>> = { en, fr };
+export const translations: Record<Language, Partial<typeof en>> = { en, fr };
 
-export function extractLocale(url: URL) {
+export function extractLanguage(url: URL) {
   const locale = url.pathname.split("/")[1];
   if (locale in translations) {
     return locale as keyof typeof translations;
@@ -21,9 +21,9 @@ export function extractLocale(url: URL) {
 }
 
 export function useTranslations(url: URL) {
-  const locale = extractLocale(url);
+  const resolvedLanguage = extractLanguage(url);
   const t = (key: keyof (typeof translations)[typeof defaultLang]) => {
-    return (translations[locale][key] || translations[defaultLang][key])!;
+    return (translations[resolvedLanguage][key] || translations[defaultLang][key])!;
   };
-  return { locale, t };
+  return { resolvedLanguage, t };
 }

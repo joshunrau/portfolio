@@ -1,23 +1,23 @@
 ---
 import type { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
-import Header from "../components/Header.astro";
+import Header from "../../components/Header.astro";
 
 export async function getStaticPaths() {
   const pages = [
     {
-      locale: undefined,
+      lang: "en",
       description: "Personal Portfolio of Joshua Unrau",
       title: "Joshua Unrau - Personal Portfolio"
     },
     {
-      locale: "fr",
+      lang: "fr",
       description: "Portfolio personnel de Joshua Unrau",
       title: "Joshua Unrau - Portfolio personnel"
     }
   ];
-  return pages.map(({ locale, description, title }) => {
+  return pages.map(({ lang, description, title }) => {
     return {
-      params: { locale },
+      params: { lang },
       props: {
         author: "Joshua Unrau",
         description,
@@ -31,11 +31,11 @@ export async function getStaticPaths() {
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { locale } = Astro.params as Params;
+const { lang } = Astro.params as Params;
 const { author, description, keywords, title } = Astro.props as Props;
 ---
 
-<html lang={locale ?? "en"}>
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
