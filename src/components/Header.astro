@@ -1,9 +1,9 @@
 ---
-import { useTranslations } from "../i18n";
+import { languages, useTranslations } from "../i18n";
 import ChevronDownIcon from "./ChevronDownIcon.astro";
 import MoonIcon from "./MoonIcon.astro";
 
-const { resolvedLanguage, t } = useTranslations(Astro.url);
+const { resolvedLanguage } = useTranslations(Astro.url);
 ---
 
 <header class="bg-white text-slate-700 shadow dark:bg-slate-800 dark:text-slate-300">
@@ -20,28 +20,55 @@ const { resolvedLanguage, t } = useTranslations(Astro.url);
       <div class="relative">
         <button
           class="flex items-center justify-center rounded-md p-2 hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
+          id="language-toggle"
           type="button"
         >
           <span class="uppercase">{resolvedLanguage}</span>
           <ChevronDownIcon class="ml-1 h-4 w-4" />
         </button>
+        <div
+          class="absolute mt-1 hidden w-full rounded-md bg-white shadow-xl ring-1 ring-black ring-opacity-10 dark:bg-slate-800"
+          id="language-toggle-dropdown"
+        >
+          {
+            Object.keys(languages).map((lang) => (
+              <a
+                class="block cursor-pointer p-2 text-center uppercase first:rounded-t-md last:rounded-b-md hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
+                href={`/${lang}`}
+              >
+                {lang}
+              </a>
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
 </header>
 <script>
-  const isDarkSystem = matchMedia("(prefers-color-scheme: dark)").matches;
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark" || (!savedTheme && isDarkSystem)) {
-    document.documentElement.classList.add("dark");
+  function setupLanguageToggle() {
+    const toggle = document.getElementById("language-toggle") as HTMLButtonElement;
+    const dropdown = document.getElementById("language-toggle-dropdown") as HTMLDivElement;
+    toggle.addEventListener("click", () => {
+      dropdown.classList.toggle("hidden");
+    });
   }
-  document.getElementById("theme-toggle")?.addEventListener("click", () => {
-    if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
+  function setupThemeToggle() {
+    const isDarkSystem = matchMedia("(prefers-color-scheme: dark)").matches;
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark" || (!savedTheme && isDarkSystem)) {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
     }
-  });
+    document.getElementById("theme-toggle")?.addEventListener("click", () => {
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+  }
+  setupLanguageToggle();
+  setupThemeToggle();
 </script>
