@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+
+type Props = astroHTML.JSX.HTMLAttributes & {
+  image: {
+    alt: string;
+    src: ImageMetadata;
+  };
+};
+
+const { image, ...props } = Astro.props;
+---
+
+<section class="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-5 sm:flex-row" {...props}>
+  <div class="text-center sm:w-full sm:text-left">
+    <slot />
+  </div>
+  <div class="w-80 flex-shrink-0 md:w-96 lg:w-112 2xl:w-128">
+    <Image {...image} />
+  </div>
+</section>
