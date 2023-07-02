@@ -3,5 +3,7 @@
   "meta.description": "Joshua Unrau is a software developer based in Montreal. He is passionate about implementing innovative, open-source solutions in highly regulated industries, such as healthcare.",
   "hero.title": "Hi, I'm Josh",
   "hero.subtitle": "I build things for the web",
-  "hero.avatar": "Avatar of Joshua Unrau"
+  "hero.avatar": "Avatar of Joshua Unrau",
+  "languageToggleLabel": "Change Language",
+  "themeToggleLabel": "Change Theme"
 }

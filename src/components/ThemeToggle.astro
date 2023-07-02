@@ -1,9 +1,14 @@
 ---
 import MoonIcon from "./MoonIcon.astro";
 import SunIcon from "./SunIcon.astro";
+
+import { useTranslations } from "@/i18n";
+
+const { t } = useTranslations(Astro.url);
 ---
 
 <button
+  aria-label={t("themeToggleLabel")}
   class="relative h-10 w-10 rounded-md transition-transform hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
   id="theme-toggle"
   type="button"

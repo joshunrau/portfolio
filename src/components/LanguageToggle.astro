@@ -2,11 +2,12 @@
 import { useTranslations } from "../i18n";
 import ChevronDownIcon from "./ChevronDownIcon.astro";
 
-const { resolvedLanguage } = useTranslations(Astro.url);
+const { t, resolvedLanguage } = useTranslations(Astro.url);
 ---
 
 <div class="relative">
   <button
+    aria-label={t("languageToggleLabel")}
     class="flex items-center justify-center rounded-md p-2 hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
     id="language-toggle"
     type="button"
@@ -20,13 +21,13 @@ const { resolvedLanguage } = useTranslations(Astro.url);
   >
     <a
       class="block cursor-pointer p-2 text-center uppercase first:rounded-t-md last:rounded-b-md hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
-      href='/'
+      href="/"
     >
       en
     </a>
     <a
       class="block cursor-pointer p-2 text-center uppercase first:rounded-t-md last:rounded-b-md hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
-      href='/fr'
+      href="/fr/"
     >
       fr
     </a>
