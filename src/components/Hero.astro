@@ -5,7 +5,7 @@ import { useTranslations } from "@/i18n";
 const { t } = useTranslations(Astro.url);
 ---
 
-<Section image={{ alt: t("hero.avatar"), src: avatar }}>
+<Section image={{ alt: t("hero.avatar"), meta: avatar }}>
   <h1 class="text-center font-display text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-left sm:text-5xl">
     {t("hero.title")}
   </h1>

@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 type Props = {
   image: {
     alt: string;
-    src: ImageMetadata;
+    meta: ImageMetadata;
   };
 };
 
@@ -16,6 +16,12 @@ const { image } = Astro.props;
     <slot />
   </div>
   <div class="hidden flex-shrink-0 sm:block sm:w-80 md:w-96 lg:w-112 2xl:w-128">
-    <Image {...image} />
+    {
+      image.meta.format === "svg" ? (
+        <img height={image.meta.height} width={image.meta.width} src={image.meta.src} />
+      ) : (
+        <Image alt={image.alt} src={image.meta} />
+      )
+    }
   </div>
 </section>
