@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     assets: '_assets'
   },
-  //compressHTML: true,
+  compressHTML: true,
   experimental: {
     assets: true
   },
