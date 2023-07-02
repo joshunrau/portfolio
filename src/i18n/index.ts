@@ -19,8 +19,9 @@ export function extractLanguage(url: URL) {
 
 export function useTranslations(url: URL) {
   const resolvedLanguage = extractLanguage(url);
+  const altLanguage = resolvedLanguage === "en" ? "fr" : "en";
   const t = (key: TranslationKey) => {
     return translations[resolvedLanguage][key] || translations["en"][key]!;
   };
-  return { resolvedLanguage, t };
+  return { altLanguage, resolvedLanguage, t };
 }

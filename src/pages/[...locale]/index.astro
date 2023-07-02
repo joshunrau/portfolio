@@ -1,5 +1,4 @@
 ---
-import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from "astro";
 
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
@@ -15,17 +14,10 @@ import "@fontsource-variable/montserrat";
 import { useTranslations } from "@/i18n";
 
 export const getStaticPaths = (() => {
-  return [
-    { params: { locale: undefined }, props: { url: "https://joshuaunrau.com" } },
-    { params: { locale: "fr" }, props: { url: "https://joshuaunrau.com/fr" } }
-  ];
-}) satisfies GetStaticPaths;
+  return [{ params: { locale: undefined } }, { params: { locale: "fr" } }];
+});
 
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
-const { url } = Astro.props;
-const { resolvedLanguage, t } = useTranslations(Astro.url);
+const { altLanguage, resolvedLanguage, t } = useTranslations(Astro.url);
 
 console.log(Astro.url);
 ---
@@ -33,11 +25,10 @@ console.log(Astro.url);
 <html lang={resolvedLanguage}>
   <head>
     <meta charset="utf-8" />
-    <link rel="alternate" href="https://joshuaunrau.com" hreflang="en" />
-    <link rel="alternate" href="https://joshuaunrau.com/fr" hreflang="fr" />
+    <link rel="alternate" href="https://joshuaunrau.com/" hreflang="en" />
+    <link rel="alternate" href="https://joshuaunrau.com/fr/" hreflang="fr" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
     <meta name="author" content="Joshua Unrau" />
     <meta name="description" content={t("meta.description")} />
     <meta name="keywords" content="Joshua, Unrau" />
@@ -45,9 +36,9 @@ console.log(Astro.url);
     <meta property="og:title" content="Joshua Unrau" />
     <meta property="og:description" content={t("meta.description")} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={Astro.url.href} />
     <meta property="og:locale" content={resolvedLanguage} />
-    <meta property="og:locale:alternate" content={resolvedLanguage === "en" ? "fr" : "en"} />
+    <meta property="og:locale:alternate" content={altLanguage} />
     <meta property="og:image" content={avatar.src} />
     <meta property="og:image:alt" content={t("hero.avatar")} />
     <meta property="og:image:height" content={avatar.height.toString()} />

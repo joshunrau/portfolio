@@ -9,8 +9,10 @@ export default defineConfig({
   experimental: {
     assets: true
   },
+  image: {
+    service: sharpImageService()
+  },
   integrations: [
-    tailwind(),
     sitemap({
       i18n: {
         defaultLocale: "en",
@@ -19,13 +21,8 @@ export default defineConfig({
           fr: "fr"
         }
       }
-    })
+    }),
+    tailwind()
   ],
-  image: {
-    service: sharpImageService()
-  },
   site: "https://joshuaunrau.com"
-  // redirects: {
-  //   "/": "/en"
-  // }
 });
