@@ -1,0 +1,53 @@
+---
+import type { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
+import Header from "../components/Header.astro";
+
+export async function getStaticPaths() {
+  const pages = [
+    {
+      locale: undefined,
+      description: "Personal Portfolio of Joshua Unrau",
+      title: "Joshua Unrau - Personal Portfolio"
+    },
+    {
+      locale: "fr",
+      description: "Portfolio personnel de Joshua Unrau",
+      title: "Joshua Unrau - Portfolio personnel"
+    }
+  ];
+  return pages.map(({ locale, description, title }) => {
+    return {
+      params: { locale },
+      props: {
+        author: "Joshua Unrau",
+        description,
+        keywords: ["Joshua", "Unrau"],
+        title
+      }
+    };
+  });
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { locale } = Astro.params as Params;
+const { author, description, keywords, title } = Astro.props as Props;
+---
+
+<html lang={locale ?? "en"}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content={author} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+    <Header />
+    <h1>{title}</h1>
+  </body>
+</html>
