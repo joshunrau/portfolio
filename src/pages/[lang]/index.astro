@@ -1,6 +1,7 @@
 ---
 import type { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
 
 export async function getStaticPaths() {
   const pages = [
@@ -46,8 +47,10 @@ const { author, description, keywords, title } = Astro.props as Props;
     <meta name="keywords" content={keywords.join(", ")} />
     <title>{title}</title>
   </head>
-  <body class="bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+  <body class="flex h-screen flex-col bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
     <Header />
-    <h1>{title}</h1>
+    <main class="container flex-grow p-2">
+      <Hero />
+    </main>
   </body>
 </html>

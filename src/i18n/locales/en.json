@@ -1,5 +1,4 @@
 {
-  "nav.home": "Home",
-  "nav.about": "About",
-  "nav.twitter": "Twitter"
+  "hero.title": "Hi, I'm Josh",
+  "hero.subtitle": "I build things for the web"
 }
