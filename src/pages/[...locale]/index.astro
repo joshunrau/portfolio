@@ -17,16 +17,14 @@ export const getStaticPaths = () => {
 };
 
 const { altLanguage, resolvedLanguage, t } = useTranslations(Astro.url);
-
-console.log(Astro.url);
 ---
 
 <html lang={resolvedLanguage}>
   <head>
     <meta charset="utf-8" />
-    <link rel="canonical" href={Astro.url.href} />
-    <link rel="alternate" href="https://joshuaunrau.com/" hreflang="en" />
-    <link rel="alternate" href="https://joshuaunrau.com/fr/" hreflang="fr" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="alternate" href={Astro.site} hreflang="en" />
+    <link rel="alternate" href={new URL("/fr", Astro.site)} hreflang="fr" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="author" content="Joshua Unrau" />
@@ -36,7 +34,7 @@ console.log(Astro.url);
     <meta property="og:title" content="Joshua Unrau" />
     <meta property="og:description" content={t("meta.description")} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:locale" content={resolvedLanguage} />
     <meta property="og:locale:alternate" content={altLanguage} />
     <meta property="og:image" content={avatar.src} />
