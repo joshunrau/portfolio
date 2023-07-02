@@ -1,5 +1,4 @@
 ---
-
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
 import Skills from "@/components/Skills.astro";
@@ -13,9 +12,9 @@ import "@fontsource/lato/700.css";
 import "@fontsource-variable/montserrat";
 import { useTranslations } from "@/i18n";
 
-export const getStaticPaths = (() => {
+export const getStaticPaths = () => {
   return [{ params: { locale: undefined } }, { params: { locale: "fr" } }];
-});
+};
 
 const { altLanguage, resolvedLanguage, t } = useTranslations(Astro.url);
 
@@ -25,6 +24,7 @@ console.log(Astro.url);
 <html lang={resolvedLanguage}>
   <head>
     <meta charset="utf-8" />
+    <link rel="canonical" href={Astro.url.href} />
     <link rel="alternate" href="https://joshuaunrau.com/" hreflang="en" />
     <link rel="alternate" href="https://joshuaunrau.com/fr/" hreflang="fr" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

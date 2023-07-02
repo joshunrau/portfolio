@@ -5,6 +5,9 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    assets: '_assets'
+  },
   //compressHTML: true,
   experimental: {
     assets: true
