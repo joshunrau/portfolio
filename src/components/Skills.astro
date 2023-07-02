@@ -1,8 +1,14 @@
 ---
 import Section from "@/layouts/Section.astro";
 import skillsIcon from "@/assets/skills-filler.svg";
+
+import Skill from "./Skill.astro";
+import jsIcon from "@/assets/javascript.svg";
+import linuxIcon from "@/assets/linux.svg";
 ---
 
 <Section image={{ alt: "placeholder", meta: skillsIcon }}>
   <h1>Skills</h1>
+  <Skill label="JavaScript" icon={jsIcon} />
+  <Skill label="Linux" icon={linuxIcon} />
 </Section>
