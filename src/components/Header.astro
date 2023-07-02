@@ -1,7 +1,7 @@
 ---
 import { languages, useTranslations } from "../i18n";
 import ChevronDownIcon from "./ChevronDownIcon.astro";
-import MoonIcon from "./MoonIcon.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 
 const { resolvedLanguage } = useTranslations(Astro.url);
 ---
@@ -10,13 +10,7 @@ const { resolvedLanguage } = useTranslations(Astro.url);
   <div class="container flex flex-wrap items-center p-2 font-medium">
     <a>Joshua Unrau</a>
     <div class="flex flex-grow justify-end gap-3 bg-inherit md:order-last">
-      <button
-        class="rounded-md p-2 transition-transform hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
-        id="theme-toggle"
-        type="button"
-      >
-        <MoonIcon class="h-6 w-6" />
-      </button>
+      <ThemeToggle />
       <div class="relative">
         <button
           class="flex items-center justify-center rounded-md p-2 hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
@@ -53,22 +47,5 @@ const { resolvedLanguage } = useTranslations(Astro.url);
       dropdown.classList.toggle("hidden");
     });
   }
-  function setupThemeToggle() {
-    const isDarkSystem = matchMedia("(prefers-color-scheme: dark)").matches;
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark" || (!savedTheme && isDarkSystem)) {
-      document.documentElement.classList.add("dark");
-    }
-    document.getElementById("theme-toggle")?.addEventListener("click", () => {
-      if (document.documentElement.classList.contains("dark")) {
-        document.documentElement.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-      } else {
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-      }
-    });
-  }
   setupLanguageToggle();
-  setupThemeToggle();
 </script>
