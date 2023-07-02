@@ -7,7 +7,17 @@ module.exports = {
   theme: {
     extend: {
       container: {
-        center: true
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          sm: "2rem",
+          md: "3rem",
+          lg: "4rem"
+        }
+      },
+      spacing: {
+        112: "28rem",
+        128: "32rem"
       }
     },
     fontFamily: {
@@ -15,5 +25,5 @@ module.exports = {
       sans: ["Montserrat", ...defaultTheme.fontFamily.sans]
     }
   },
-  plugins: []
+  plugins: [require("@tailwindcss/container-queries")]
 };
