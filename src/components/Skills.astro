@@ -5,6 +5,10 @@ import skillsIcon from "@/assets/skills-filler.svg";
 import jsIcon from "@/assets/javascript.svg";
 import linuxIcon from "@/assets/linux.svg";
 import reactIcon from "@/assets/react.svg";
+import pythonIcon from "@/assets/python.svg";
+import typescriptIcon from "@/assets/typescript.svg";
+import css from "@/assets/css.svg";
+import html from "@/assets/html.svg";
 
 type Skill = {
   label: string;
@@ -13,8 +17,20 @@ type Skill = {
 
 const skills: Skill[] = [
   {
+    label: "HTML",
+    icon: html
+  },
+  {
+    label: "CSS",
+    icon: css
+  },
+  {
     label: "JavaScript",
     icon: jsIcon
+  },
+  {
+    label: "TypeScript",
+    icon: typescriptIcon
   },
   {
     label: "Linux",
@@ -23,13 +39,17 @@ const skills: Skill[] = [
   {
     label: "React",
     icon: reactIcon
+  },
+  {
+    label: "Python",
+    icon: pythonIcon
   }
 ];
 ---
 
 <Section image={{ alt: "placeholder", meta: skillsIcon }}>
   <h1>Skills</h1>
-  <div class="flex" id="skills-showcase">
+  <div class="flex w-full flex-wrap" id="skills-showcase">
     {
       skills.map(({ label, icon }) => (
         <div class="group/skill relative h-26 w-26">
@@ -46,11 +66,6 @@ const skills: Skill[] = [
     }
   </div>
 </Section>
-<style>
-  img {
-    transition-property: opacity, transform;
-  }
-</style>
 <script>
   const container = document.getElementById("skills-showcase")!;
   const skillIcons = container.querySelectorAll("div > img");
