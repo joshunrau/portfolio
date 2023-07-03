@@ -9,6 +9,8 @@ import pythonIcon from "@/assets/python.svg";
 import typescriptIcon from "@/assets/typescript.svg";
 import css from "@/assets/css.svg";
 import html from "@/assets/html.svg";
+import mongodb from "@/assets/mongodb.svg";
+import nextjs from "@/assets/nextjs.svg";
 
 type Skill = {
   label: string;
@@ -43,6 +45,14 @@ const skills: Skill[] = [
   {
     label: "Python",
     icon: pythonIcon
+  },
+  {
+    label: "MongoDB",
+    icon: mongodb
+  },
+  {
+    label: "Next.js",
+    icon: nextjs
   }
 ];
 ---
@@ -77,7 +87,7 @@ const skills: Skill[] = [
           setTimeout(() => {
             skillIcons.item(i).classList.replace("opacity-0", "opacity-100");
             skillIcons.item(i).classList.replace("scale-0", "scale-100");
-          }, i * 300);
+          }, i * 100);
         }
       }
     });
