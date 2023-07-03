@@ -1,84 +1,33 @@
 ---
-import Section from "@/layouts/Section.astro";
 import skillsIcon from "@/assets/skills-filler.svg";
+import Section from "@/layouts/Section.astro";
+import Skill from "./Skill.astro";
 
-import jsIcon from "@/assets/javascript.svg";
-import linuxIcon from "@/assets/linux.svg";
-import reactIcon from "@/assets/react.svg";
-import pythonIcon from "@/assets/python.svg";
-import typescriptIcon from "@/assets/typescript.svg";
+import javascript from "@/assets/javascript.svg";
+import linux from "@/assets/linux.svg";
+import react from "@/assets/react.svg";
+import python from "@/assets/python.svg";
+import typescript from "@/assets/typescript.svg";
 import css from "@/assets/css.svg";
 import html from "@/assets/html.svg";
 import mongodb from "@/assets/mongodb.svg";
 import nextjs from "@/assets/nextjs.svg";
 import docker from "@/assets/docker.svg";
-
-type Skill = {
-  label: string;
-  icon: ImageMetadata;
-};
-
-const skills: Skill[] = [
-  {
-    label: "HTML",
-    icon: html
-  },
-  {
-    label: "CSS",
-    icon: css
-  },
-  {
-    label: "JavaScript",
-    icon: jsIcon
-  },
-  {
-    label: "TypeScript",
-    icon: typescriptIcon
-  },
-  {
-    label: "Linux",
-    icon: linuxIcon
-  },
-  {
-    label: "React",
-    icon: reactIcon
-  },
-  {
-    label: "Python",
-    icon: pythonIcon
-  },
-  {
-    label: "MongoDB",
-    icon: mongodb
-  },
-  {
-    label: "Next.js",
-    icon: nextjs
-  },
-  {
-    label: "Docker",
-    icon: docker
-  }
-];
 ---
 
 <Section image={{ alt: "placeholder", meta: skillsIcon }}>
   <h1>Skills</h1>
   <div class="flex w-full flex-wrap" id="skills-showcase">
-    {
-      skills.map(({ label, icon }) => (
-        <div class="group/skill relative h-26 w-26">
-          <img
-            alt={label}
-            class="absolute right-5 top-2 h-16 w-16 scale-0 transform-gpu opacity-0 duration-300 ease-in-out group-hover/skill:scale-125"
-            {...icon}
-          />
-          <span class="absolute bottom-0 left-0 w-full text-center text-sm opacity-0 transition-opacity duration-300 ease-in-out group-hover/skill:opacity-100">
-            {label}
-          </span>
-        </div>
-      ))
-    }
+    <Skill label="HTML" icon={html} />
+    <Skill label="CSS" icon={css} />
+    <Skill label="JavaScript" icon={javascript} />
+    <Skill label="TypeScript" icon={typescript} />
+    <Skill label="React" icon={react} />
+    <Skill label="Next.js" icon={nextjs} />
+    <Skill label="MongoDB" icon={mongodb} />
+    <Skill label="Python" icon={python} />
+    <Skill label="Linux" icon={linux} />
+    <Skill label="Docker" icon={docker} />
   </div>
 </Section>
 <script>
