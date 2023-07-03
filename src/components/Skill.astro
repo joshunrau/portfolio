@@ -2,15 +2,19 @@
 type Props = astroHTML.JSX.HTMLAttributes & {
   label: string;
   icon: ImageMetadata;
+  invert?: "dark" | "light";
 };
 
-const { label, icon, ...props } = Astro.props;
+const { label, icon, invert } = Astro.props;
 ---
 
 <div class="group/skill relative h-26 w-26">
   <img
     alt={label}
-    class="absolute right-5 top-2 h-16 w-16 scale-0 transform-gpu opacity-0 duration-300 ease-in-out group-hover/skill:scale-125"
+    class:list={[
+      "absolute right-5 top-2 h-16 w-16 scale-0 transform-gpu opacity-0 duration-300 ease-in-out group-hover/skill:scale-125",
+      invert === "dark" ? "dark:invert" : invert === "light" ? "invert" : undefined
+    ]}
     {...icon}
   />
   <span
