@@ -4,6 +4,7 @@ import skillsIcon from "@/assets/skills-filler.svg";
 
 import jsIcon from "@/assets/javascript.svg";
 import linuxIcon from "@/assets/linux.svg";
+import reactIcon from "@/assets/react.svg";
 
 type Skill = {
   label: string;
@@ -18,25 +19,53 @@ const skills: Skill[] = [
   {
     label: "Linux",
     icon: linuxIcon
+  },
+  {
+    label: "React",
+    icon: reactIcon
   }
 ];
 ---
 
 <Section image={{ alt: "placeholder", meta: skillsIcon }}>
   <h1>Skills</h1>
-  <div id="skills-showcase">
+  <div class="flex" id="skills-showcase">
     {
       skills.map(({ label, icon }) => (
-        <div class="skill w-16">
-          <img alt={label} {...icon} />
-          <span>{label}</span>
+        <div class="group/skill relative h-26 w-26">
+          <img
+            alt={label}
+            class="absolute right-5 top-2 h-16 w-16 scale-0 transform-gpu opacity-0 duration-300 ease-in-out group-hover/skill:scale-125"
+            {...icon}
+          />
+          <span class="absolute bottom-0 left-0 w-full text-center text-sm opacity-0 transition-opacity duration-300 ease-in-out group-hover/skill:opacity-100">
+            {label}
+          </span>
         </div>
       ))
     }
   </div>
 </Section>
-
+<style>
+  img {
+    transition-property: opacity, transform;
+  }
+</style>
 <script>
-  const container = document.getElementById("skills-showcase");
-  console.log(container);
+  const container = document.getElementById("skills-showcase")!;
+  const skillIcons = container.querySelectorAll("div > img");
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        observer.disconnect();
+        for (let i = 0; i < skillIcons.length; i++) {
+          setTimeout(() => {
+            skillIcons.item(i).classList.replace("opacity-0", "opacity-100");
+            skillIcons.item(i).classList.replace("scale-0", "scale-100");
+          }, i * 300);
+        }
+      }
+    });
+  });
+  observer.observe(container);
 </script>
