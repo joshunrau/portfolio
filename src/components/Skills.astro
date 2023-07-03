@@ -18,20 +18,22 @@ import nodejs from "@/assets/nodejs.svg";
 ---
 
 <Section image={{ alt: "placeholder", meta: skillsIcon, position: "left" }}>
-  <h1 class="text-center text-xl font-semibold mb-2">Skills</h1>
-  <div class="grid grid-cols-6" id="skills-showcase">
-    <Skill label="HTML" icon={html} />
-    <Skill label="CSS" icon={css} />
-    <Skill label="JavaScript" icon={javascript} />
-    <Skill label="TypeScript" icon={typescript} />
-    <Skill label="React" icon={react} />
-    <Skill label="Next.js" icon={nextjs} invert="dark" />
-    <Skill label="MongoDB" icon={mongodb} />
-    <Skill label="Node.js" icon={nodejs} />
-    <Skill label="NestJS" icon={nestjs} />
-    <Skill label="Python" icon={python} />
-    <Skill label="Linux" icon={linux} />
-    <Skill label="Docker" icon={docker} />
+  <div class="@container">
+    <h1 class="mb-5 text-center text-xl font-semibold">Skills</h1>
+    <div class="grid grid-cols-4 gap-3 @2xl:grid-cols-6" id="skills-showcase">
+      <Skill label="HTML" icon={html} />
+      <Skill label="CSS" icon={css} />
+      <Skill label="JavaScript" icon={javascript} />
+      <Skill label="TypeScript" icon={typescript} />
+      <Skill label="React" icon={react} />
+      <Skill label="Next.js" icon={nextjs} invert="dark" />
+      <Skill label="MongoDB" icon={mongodb} />
+      <Skill label="Node.js" icon={nodejs} />
+      <Skill label="NestJS" icon={nestjs} />
+      <Skill label="Python" icon={python} />
+      <Skill label="Linux" icon={linux} />
+      <Skill label="Docker" icon={docker} />
+    </div>
   </div>
 </Section>
 <script>
