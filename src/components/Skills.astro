@@ -17,9 +17,9 @@ import nestjs from "@/assets/nestjs.svg";
 import nodejs from "@/assets/nodejs.svg";
 ---
 
-<Section image={{ alt: "placeholder", meta: skillsIcon }}>
-  <h1>Skills</h1>
-  <div class="flex w-full flex-wrap" id="skills-showcase">
+<Section image={{ alt: "placeholder", meta: skillsIcon, position: "left" }}>
+  <h1 class="text-center text-xl font-semibold mb-2">Skills</h1>
+  <div class="grid grid-cols-6" id="skills-showcase">
     <Skill label="HTML" icon={html} />
     <Skill label="CSS" icon={css} />
     <Skill label="JavaScript" icon={javascript} />

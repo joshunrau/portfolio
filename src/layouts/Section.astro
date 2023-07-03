@@ -5,17 +5,23 @@ type Props = {
   image: {
     alt: string;
     meta: ImageMetadata;
+    position?: "left" | "right";
   };
 };
 
 const { image } = Astro.props;
 ---
 
-<section class="flex min-h-[calc(100vh-4rem)] items-center justify-center">
+<section class="flex min-h-[calc(100vh-4rem)] items-center justify-center gap-5">
   <div class="w-full">
     <slot />
   </div>
-  <div class="hidden flex-shrink-0 sm:block sm:w-80 md:w-96 lg:w-112 2xl:w-128">
+  <div
+    class:list={[
+      "hidden flex-shrink-0 sm:block sm:w-80 md:w-96 lg:w-112 2xl:w-128",
+      { "order-first": image.position === "left" }
+    ]}
+  >
     {
       image.meta.format === "svg" ? (
         <img height={image.meta.height} width={image.meta.width} src={image.meta.src} />
