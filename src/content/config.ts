@@ -14,6 +14,11 @@ export const collections = {
   }),
   technologies: defineCollection({
     type: "data",
-    schema: ({ image }) => z.object({})
+    schema: ({ image }) =>
+      z.object({
+        name: z.string(),
+        icon: image(),
+        invert: z.enum(["dark", "light"]).optional()
+      })
   })
 };
