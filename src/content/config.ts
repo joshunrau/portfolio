@@ -5,8 +5,15 @@ export const collections = {
     type: "data",
     schema: z.object({
       title: z.string(),
-      description: z.string(),
+      description: z.object({
+        en: z.string(),
+        fr: z.string()
+      }),
       sourceURL: z.string().url()
     })
+  }),
+  technologies: defineCollection({
+    type: "data",
+    schema: ({ image }) => z.object({})
   })
 };

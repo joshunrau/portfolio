@@ -1,3 +1,5 @@
 title: Douglas Data Bank
-description: "An open-source, web-based platform for managing, versioning, and sharing tabular datasets"
+description:
+  en: An open-source, web-based platform for managing, versioning, and sharing tabular datasets.
+  fr: Une plateforme web open-source pour la gestion, la mise à jour et le partage de bases de données tabulaires.
 sourceURL: https://github.com/DouglasNeuroInformatics/DataBank

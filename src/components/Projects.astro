@@ -1,12 +1,13 @@
 ---
 import Section from "@/layouts/Section.astro";
-import { useTranslations } from "@/i18n";
+import { extractLanguage, useTranslations } from "@/i18n";
 const { t } = useTranslations(Astro.url);
 
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects');
 
+const lang = extractLanguage(Astro.url)
 ---
 
 <Section>
@@ -15,7 +16,7 @@ const projects = await getCollection('projects');
     {projects.map((project) => (
       <div>
         <h5 class="text-lg font-medium">{project.data.title}</h5>
-        <p>{project.data.description}</p>
+        <p>{project.data.description[lang]}</p>
         <a href={project.data.sourceURL} rel="noreferrer" target="_blank">GitHub</a>
       </div>
     ))}
