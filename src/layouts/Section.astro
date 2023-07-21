@@ -1,33 +1,9 @@
 ---
-import { Image } from "astro:assets";
+type Props = astroHTML.JSX.HTMLAttributes;
 
-type Props = {
-  image: {
-    alt: string;
-    meta: ImageMetadata;
-    position?: "left" | "right";
-  };
-};
-
-const { image } = Astro.props;
+const { class: className, ...props } = Astro.props;
 ---
 
-<section class="flex min-h-[calc(100vh-4rem)] items-center justify-center gap-10">
-  <div class="w-full">
-    <slot />
-  </div>
-  <div
-    class:list={[
-      "hidden flex-shrink-0 sm:block sm:w-80 md:w-96 lg:w-112 2xl:w-128",
-      { "order-first": image.position === "left" }
-    ]}
-  >
-    {
-      image.meta.format === "svg" ? (
-        <img height={image.meta.height} width={image.meta.width} src={image.meta.src} />
-      ) : (
-        <Image alt={image.alt} src={image.meta} />
-      )
-    }
-  </div>
+<section class:list={["min-h-[calc(100vh-4rem)]", className]} {...props}>
+  <slot />
 </section>

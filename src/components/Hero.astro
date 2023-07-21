@@ -5,11 +5,16 @@ import { useTranslations } from "@/i18n";
 const { t } = useTranslations(Astro.url);
 ---
 
-<Section image={{ alt: t("hero.avatar"), meta: avatar }}>
-  <h1 class="text-center font-display text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-left sm:text-5xl">
-    {t("hero.title")}
-  </h1>
-  <p class="mt-3 text-center text-base text-slate-600 dark:text-slate-300 sm:mt-5 sm:text-left sm:text-lg">
-    {t("hero.subtitle")}
-  </p>
+<Section class="flex items-center justify-center gap-10">
+  <div class="w-full">
+    <h1 class="text-center font-display text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-left sm:text-5xl">
+      {t("hero.title")}
+    </h1>
+    <p class="mt-3 text-center text-base text-slate-600 dark:text-slate-300 sm:mt-5 sm:text-left sm:text-lg">
+      {t("hero.subtitle")}
+    </p>
+  </div>
+  <div class="hidden flex-shrink-0 sm:block sm:w-80 md:w-96 lg:w-112 2xl:w-128">
+    <img alt={t("hero.avatar")} height={avatar.height} width={avatar.width} src={avatar.src} />
+  </div>
 </Section>
