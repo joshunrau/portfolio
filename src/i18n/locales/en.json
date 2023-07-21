@@ -4,6 +4,8 @@
   "hero.title": "Hi, I'm Josh",
   "hero.subtitle": "I am passionate about leveraging open-source technology to enhance patient care, streamline processes, and improve the efficiency of our healthcare system.",
   "hero.avatar": "Avatar of Joshua Unrau",
+  "skills.title": "Skills",
+  "projects.title": "Projects",
   "languageToggleLabel": "Change Language",
   "themeToggleLabel": "Change Theme"
 }

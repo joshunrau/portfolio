@@ -1,7 +1,9 @@
 ---
 import Section from "@/layouts/Section.astro";
+import { useTranslations } from "@/i18n";
+const { t } = useTranslations(Astro.url);
 ---
 
 <Section>
-  <h1>Projects</h1>
+  <h3 class="mb-5 text-center text-2xl font-semibold">{t('projects.title')}</h3>
 </Section>

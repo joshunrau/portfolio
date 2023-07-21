@@ -1,6 +1,7 @@
 ---
 import skillsIcon from "@/assets/skills-filler.svg";
 import Section from "@/layouts/Section.astro";
+
 import Skill from "./Skill.astro";
 
 import javascript from "@/assets/javascript.svg";
@@ -15,12 +16,16 @@ import nextjs from "@/assets/nextjs.svg";
 import docker from "@/assets/docker.svg";
 import nestjs from "@/assets/nestjs.svg";
 import nodejs from "@/assets/nodejs.svg";
+
+import { useTranslations } from "@/i18n";
+
+const { t } = useTranslations(Astro.url);
 ---
 
 <Section class="flex items-center flex-row-reverse justify-center gap-10">
   <div class="w-full">
     <div class="@container">
-      <h3 class="mb-5 text-center text-2xl font-semibold">Skills</h3>
+      <h3 class="mb-5 text-center text-2xl font-semibold">{t('skills.title')}</h3>
       <div class="grid grid-cols-3 gap-3 @md:grid-cols-4 @2xl:grid-cols-6" id="skills-showcase">
         <Skill label="HTML" icon={html} />
         <Skill label="CSS" icon={css} />
