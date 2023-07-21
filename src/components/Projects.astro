@@ -2,8 +2,18 @@
 import Section from "@/layouts/Section.astro";
 import { useTranslations } from "@/i18n";
 const { t } = useTranslations(Astro.url);
+
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+
 ---
 
 <Section>
   <h3 class="mb-5 text-center text-2xl font-semibold">{t('projects.title')}</h3>
+  <div>
+    {projects.map((project) => (
+      <h5>{project.data.title}</h5>
+    ))}
+  </div>
 </Section>
