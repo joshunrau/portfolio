@@ -24,16 +24,15 @@ export const post: APIRoute = async ({ request }) => {
     text: `New message from ${name} <${email}>\n\n${message}`
   };
 
-  transport.sendMail(mail, (err, info) => {
-    if (err) {
-      throw err;
-    }
-    console.log(info);
+  return new Promise((resolve, reject) => {
+    transport.sendMail(mail, (err, info) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve({
+          body: "Success"
+        });
+      }
+    });
   });
-
-  return {
-    body: JSON.stringify({
-      message: "This was a POST!"
-    })
-  };
 };
