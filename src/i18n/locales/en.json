@@ -6,6 +6,12 @@
   "hero.avatar": "Avatar of Joshua Unrau",
   "skills.title": "Skills",
   "projects.title": "Projects",
+  "contact.title": "Contact",
+  "contact.name": "Name",
+  "contact.email": "Email",
+  "contact.subject": "Subject",
+  "contact.message": "Message",
+  "contact.submit": "Submit",
   "languageToggleLabel": "Change Language",
   "themeToggleLabel": "Change Theme"
 }

@@ -2,17 +2,21 @@
 import Section from "@/layouts/Section.astro";
 import TextBox from "./TextBox.astro";
 import Button from "./Button.astro";
+
+import { useTranslations } from "@/i18n";
+
+const { t } = useTranslations(Astro.url);
 ---
 
 <Section class="flex items-center justify-center">
   <div class="w-full">
-    <h3 class="mb-5 text-center text-2xl font-semibold">Contact</h3>
+    <h3 class="mb-5 text-center text-2xl font-semibold">{t("contact.title")}</h3>
     <form action="/api/contact" class="space-y-3" id="contact-form" method="post">
-      <TextBox required name="name" label="Name" variant="text" />
-      <TextBox required name="email" label="Email" variant="email" />
-      <TextBox required name="subject" label="Subject" variant="text" />
-      <TextBox required name="message" label="Message" variant="textarea" />
-      <Button label="Submit" />
+      <TextBox required name="name" label={t("contact.name")} variant="text" />
+      <TextBox required name="email" label={t("contact.email")} variant="email" />
+      <TextBox required name="subject" label={t("contact.subject")} variant="text" />
+      <TextBox required name="message" label={t("contact.message")} variant="textarea" />
+      <Button label={t("contact.submit")} />
     </form>
   </div>
 </Section>
