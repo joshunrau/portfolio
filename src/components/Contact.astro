@@ -1,0 +1,26 @@
+---
+import Section from "@/layouts/Section.astro";
+---
+
+<Section>
+  <h3>Contact</h3>
+  <form action="/api/contact" id="contact-form" method="post">
+    <div class="flex flex-col">
+      <label for="name">Name</label>
+      <input required id="name" name="name" type="text" />
+    </div>
+    <div class="flex flex-col">
+      <label for="email">Email</label>
+      <input required id="email" name="email" type="email" />
+    </div>
+        <div class="flex flex-col">
+      <label for="subject">Subject</label>
+      <input required id="subject" name="subject" type="text" />
+    </div>
+    <div class="flex flex-col">
+      <label for="message">Message</label>
+      <textarea required id="message" name="message"></textarea>
+    </div>
+    <button>Submit</button>
+  </form>
+</Section>

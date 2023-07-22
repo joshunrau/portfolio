@@ -14,13 +14,15 @@
   },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.0.6",
-    "@fontsource/lato": "^5.0.5"
+    "@fontsource/lato": "^5.0.5",
+    "nodemailer": "^6.9.4"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^2.0.1",
     "@astrojs/tailwind": "^4.0.0",
     "@astrojs/vercel": "^3.7.4",
     "@tailwindcss/container-queries": "^0.1.1",
+    "@types/nodemailer": "^6.4.8",
     "@typescript-eslint/parser": "^6.1.0",
     "astro": "^2.9.0",
     "eslint": "^8.45.0",
