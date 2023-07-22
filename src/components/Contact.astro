@@ -1,26 +1,18 @@
 ---
 import Section from "@/layouts/Section.astro";
+import TextBox from "./TextBox.astro";
+import Button from "./Button.astro";
 ---
 
-<Section>
-  <h3>Contact</h3>
-  <form action="/api/contact" id="contact-form" method="post">
-    <div class="flex flex-col">
-      <label for="name">Name</label>
-      <input required id="name" name="name" type="text" />
-    </div>
-    <div class="flex flex-col">
-      <label for="email">Email</label>
-      <input required id="email" name="email" type="email" />
-    </div>
-        <div class="flex flex-col">
-      <label for="subject">Subject</label>
-      <input required id="subject" name="subject" type="text" />
-    </div>
-    <div class="flex flex-col">
-      <label for="message">Message</label>
-      <textarea required id="message" name="message"></textarea>
-    </div>
-    <button>Submit</button>
-  </form>
+<Section class="flex items-center justify-center">
+  <div class="w-full">
+    <h3 class="mb-5 text-center text-2xl font-semibold">Contact</h3>
+    <form action="/api/contact" class="space-y-3" id="contact-form" method="post">
+      <TextBox required name="name" label="Name" variant="text" />
+      <TextBox required name="email" label="Email" variant="email" />
+      <TextBox required name="subject" label="Subject" variant="text" />
+      <TextBox required name="message" label="Message" variant="textarea" />
+      <Button label="Submit" />
+    </form>
+  </div>
 </Section>

@@ -1,0 +1,34 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props {
+  name: string;
+  label: string;
+  variant: Extract<HTMLAttributes<"input">["type"], "text" | "email"> | "textarea";
+  required?: boolean;
+}
+
+const { name, label, variant, required } = Astro.props;
+---
+
+<div class="flex flex-col space-y-1">
+  <label for={name}>{label}</label>
+  {
+    variant === "textarea" ? (
+      <textarea
+        class="text-left rounded-sm p-2 w-full bg-inherit border border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600 focus:border-sky-800 dark:focus:border-sky-500 focus:outline-none"
+        {required}
+        id={name}
+        name={name}
+      />
+    ) : (
+      <input
+        class="text-left rounded-sm p-2 w-full bg-inherit border border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600 focus:border-sky-800 dark:focus:border-sky-500 focus:outline-none"
+        {required}
+        id={name}
+        name={name}
+        type={variant}
+      />
+    )
+  }
+</div>
