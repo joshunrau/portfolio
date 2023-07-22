@@ -1,24 +1,35 @@
 ---
+import { Image } from "astro:assets";
 import Section from "@/layouts/Section.astro";
 import { extractLanguage, useTranslations } from "@/i18n";
 const { t } = useTranslations(Astro.url);
+import githubIcon from "@/assets/github.svg";
+import linkIcon from "@/assets/link.svg";
+import { getCollection } from "astro:content";
 
-import { getCollection } from 'astro:content';
+const projects = await getCollection("projects");
 
-const projects = await getCollection('projects');
-
-const lang = extractLanguage(Astro.url)
+const lang = extractLanguage(Astro.url);
 ---
 
 <Section>
-  <h3 class="mb-5 text-center text-2xl font-semibold">{t('projects.title')}</h3>
+  <h3 class="mb-5 text-center text-2xl font-semibold">{t("projects.title")}</h3>
   <div class="space-y-6">
-    {projects.map((project) => (
-      <div>
-        <h5 class="text-lg font-medium">{project.data.title}</h5>
-        <p>{project.data.description[lang]}</p>
-        <a href={project.data.sourceURL} rel="noreferrer" target="_blank">GitHub</a>
-      </div>
-    ))}
+    {
+      projects.map((project) => (
+        <div class="border border-slate-300 shadow-sm dark:border-slate-600 p-5 dark:bg-slate-800 bg-slate-50">
+          <h5 class="text-xl font-medium">{project.data.title}</h5>
+          <p class="mt-1 mb-3">{project.data.description[lang]}</p>
+          <div class="flex gap-3">
+            <a href={project.data.sourceURL} rel="noreferrer" target="_blank">
+              <Image alt="GitHub Link" class="h-6 w-6 dark:invert" src={githubIcon} />
+            </a>
+            <a href={project.data.siteURL} rel="noreferrer" target="_blank">
+              <Image alt="Site Link" class="h-6 w-6 dark:invert" src={linkIcon} />
+            </a>
+          </div>
+        </div>
+      ))
+    }
   </div>
 </Section>

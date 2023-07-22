@@ -9,6 +9,7 @@ export const collections = {
         en: z.string(),
         fr: z.string()
       }),
+      siteURL: z.string().url(),
       sourceURL: z.string().url()
     })
   }),
