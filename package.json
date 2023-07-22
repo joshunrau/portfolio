@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.0.6",
-    "@fontsource/lato": "^5.0.5",
-    "@vercel/node": "^2.15.6"
+    "@fontsource/lato": "^5.0.5"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^2.0.1",
