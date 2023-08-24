@@ -2,10 +2,8 @@ import { defineConfig, sharpImageService } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel/serverless";
 
 export default defineConfig({
-  adapter: vercel(),
   build: {
     assets: "_assets"
   },
@@ -28,6 +26,6 @@ export default defineConfig({
     }),
     tailwind()
   ],
-  output: "hybrid",
+  output: "static",
   site: "https://joshuaunrau.com"
 });
