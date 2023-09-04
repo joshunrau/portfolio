@@ -6,6 +6,7 @@
   "scripts": {
     "astro": "astro",
     "build": "astro build",
+    "deploy": "sudo cp -r dist/* /var/www/joshuaunrau.com",
     "dev": "astro dev",
     "format": "prettier --write src",
     "lint": "eslint --ext .js,.astro src",
