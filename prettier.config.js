@@ -1,11 +1,10 @@
-// @ts-check
-
 /** @type {import("prettier").Options} */
-module.exports = {
-  plugins: [require.resolve("prettier-plugin-astro")],
+export default {
+  plugins: ["prettier-plugin-astro"],
   htmlWhitespaceSensitivity: "ignore",
   printWidth: 120,
   trailingComma: "none",
+  singleQuote: true,
   overrides: [
     {
       files: "*.astro",

@@ -1,4 +1,5 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+import containerQueries from "@tailwindcss/container-queries";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -26,5 +27,5 @@ module.exports = {
       sans: ["Montserrat Variable", ...defaultTheme.fontFamily.sans]
     }
   },
-  plugins: [require("@tailwindcss/container-queries")]
+  plugins: [containerQueries]
 };
