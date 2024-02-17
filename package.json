@@ -13,11 +13,6 @@
     "preview": "astro preview",
     "start": "astro dev"
   },
-  "dependencies": {
-    "@fontsource-variable/montserrat": "^5.0.17",
-    "@fontsource/lato": "^5.0.18",
-    "nodemailer": "^6.9.7"
-  },
   "devDependencies": {
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.3",
@@ -35,7 +30,7 @@
     "tailwindcss": "^3.3.6",
     "typescript": "^5.3.3"
   },
-  "packageManager": "bun@1.0.14",
+  "packageManager": "bun@1.0.18",
   "trustedDependencies": [
     "sharp"
   ]
