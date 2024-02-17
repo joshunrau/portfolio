@@ -1,15 +1,14 @@
 /** @type {import("prettier").Options} */
 export default {
-  plugins: ["prettier-plugin-astro"],
-  htmlWhitespaceSensitivity: "ignore",
+  plugins: ['prettier-plugin-astro', '@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
   printWidth: 120,
-  trailingComma: "none",
+  trailingComma: 'none',
   singleQuote: true,
   overrides: [
     {
-      files: "*.astro",
+      files: '*.astro',
       options: {
-        parser: "astro"
+        parser: 'astro'
       }
     }
   ]
