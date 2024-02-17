@@ -1,5 +1,4 @@
 import containerQueries from "@tailwindcss/container-queries";
-import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -21,10 +20,6 @@ module.exports = {
         112: "28rem",
         128: "32rem"
       }
-    },
-    fontFamily: {
-      display: ["Lato", ...defaultTheme.fontFamily.sans],
-      sans: ["Montserrat Variable", ...defaultTheme.fontFamily.sans]
     }
   },
   plugins: [containerQueries]
