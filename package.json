@@ -6,7 +6,6 @@
   "scripts": {
     "astro": "astro",
     "build": "astro build",
-    "deploy": "sudo cp -r dist/* /var/www/joshuaunrau.com",
     "dev": "astro dev",
     "format": "prettier --write src",
     "lint": "eslint --ext .js,.astro src",
@@ -17,6 +16,7 @@
     "@astrojs/check": "^0.5.4",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/container-queries": "^0.1.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "astro": "^4.4.0",
     "prettier": "^3.2.5",
