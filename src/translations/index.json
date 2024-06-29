@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": {
+      "en": "Joshua Unrau - Personal Portfolio",
+      "fr": "Joshua Unrau - Portfolio personnel"
+    },
+    "description": {
+      "en": "Joshua Unrau is a software developer based in Montreal. He is passionate about implementing innovative, open-source solutions.",
+      "fr": "Joshua Unrau est un développeur de logiciels basé à Montréal. Il se passionne pour la mise en œuvre de solutions novatrices à code source ouvert."
+    }
+  },
+  "hero": {
+    "heading": {
+      "en": "Hi, I'm Josh",
+      "fr": "Bonjour, c'est Josh"
+    },
+    "description": {
+      "en": "I am a full-stack software developer at the Douglas Research Centre, where I lead the development of Open Data Capture, an open-source, web-based platform for clinical research data collection.",
+      "fr": "Je suis développeur de logiciels au Centre de recherche Douglas, où je dirige le développement d'Open Data Capture, une plateforme web à code source ouvert pour la collecte de données de recherche clinique."
+    },
+    "avatar": {
+      "en": "Avatar of Joshua Unrau",
+      "fr": "Avatar de Joshua Unrau"
+    }
+  }
+}
