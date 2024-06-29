@@ -40,3 +40,11 @@ export function isPlainObject(value: unknown): value is { [key: string]: unknown
     !(Symbol.iterator in value)
   );
 }
+
+export function getLocalizedPageURLs(page: URL, site: URL) {
+  const basePathname = page.pathname.replace(/^\/fr/, '');
+  return {
+    en: new URL(basePathname, site),
+    fr: new URL(`/fr${basePathname}`, site)
+  };
+}

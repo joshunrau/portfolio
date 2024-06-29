@@ -2,9 +2,10 @@
 import avatar from '@/assets/avatar.png';
 import Header from '@/components/Header.astro';
 import { useTranslations } from '@/i18n';
+import initThemeScript from '@/scripts/init-theme.js?url';
+import { cn, getLocalizedPageURLs } from '@/utils';
 
 import '@/styles/globals.css';
-import { cn } from '@/utils';
 
 type Props = {
   className?: string;
@@ -17,7 +18,7 @@ type Props = {
 
 const { resolvedLanguage, t } = useTranslations(Astro.url);
 const { className, meta } = Astro.props;
-const basePathname = Astro.url.pathname.replace(/^\/fr/, '');
+const pageUrls = getLocalizedPageURLs(Astro.url, Astro.site!);
 
 const title = meta?.title ?? t('common.meta.title');
 const description = meta?.description ?? t('common.meta.description');
@@ -41,10 +42,11 @@ const keywords = ['Joshua', 'Unrau'];
     <meta property="og:image:alt" content={t('common.avatar')} />
     <meta property="og:image:height" content={avatar.height.toString()} />
     <meta property="og:image:width" content={avatar.width.toString()} />
-    <link rel="alternate" href={new URL(basePathname, Astro.site)} hreflang="en" />
-    <link rel="alternate" href={new URL(`/fr${basePathname}`, Astro.site)} hreflang="fr" />
+    <link rel="alternate" href={pageUrls.en} hreflang="en" />
+    <link rel="alternate" href={pageUrls.fr} hreflang="fr" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline src={initThemeScript}></script>
   </head>
   <body class="flex min-h-screen flex-col bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
     <Header />
