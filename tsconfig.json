@@ -1,0 +1,12 @@
+{
+  "extends": ["@joshunrau/tsconfig"],
+  "compilerOptions": {
+    "baseUrl": "src",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "include": ["src/**/*", "*.js", "*.cjs"]
+}
