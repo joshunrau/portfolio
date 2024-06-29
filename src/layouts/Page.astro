@@ -1,5 +1,6 @@
 ---
 import { useTranslations } from '@/i18n';
+import avatar from '@/assets/avatar.png';
 
 import '@/styles/globals.css';
 
@@ -11,7 +12,7 @@ type Props = {
   };
 };
 
-const { altLanguage, resolvedLanguage } = useTranslations(Astro.url);
+const { resolvedLanguage, t } = useTranslations(Astro.url);
 const { meta } = Astro.props;
 const basePathname = Astro.url.pathname.replace(/^\/fr/, '');
 ---
@@ -29,6 +30,10 @@ const basePathname = Astro.url.pathname.replace(/^\/fr/, '');
     <meta property="og:description" content={meta.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:image" content={avatar.src} />
+    <meta property="og:image:alt" content={t('common.avatar')} />
+    <meta property="og:image:height" content={avatar.height.toString()} />
+    <meta property="og:image:width" content={avatar.width.toString()} />
     <link rel="alternate" href={new URL(basePathname, Astro.site)} hreflang="en" />
     <link rel="alternate" href={new URL(`/fr${basePathname}`, Astro.site)} hreflang="fr" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />

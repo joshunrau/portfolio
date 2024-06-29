@@ -1,3 +1,4 @@
+import common from './translations/common.json';
 import index from './translations/index.json';
 import { get } from './utils';
 
@@ -15,7 +16,7 @@ type Language = 'en' | 'fr';
 
 type TranslationKey = ExtractTranslationKey<Translations>;
 
-const translations = { index };
+const translations = { common, index };
 
 export const useTranslations = (url: URL) => {
   const resolvedLanguage = url.pathname.split('/')[1] === 'fr' ? 'fr' : 'en';
