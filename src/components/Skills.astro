@@ -1,0 +1,68 @@
+---
+import skillsIcon from '@/assets/skills-filler.svg';
+import Section from '@/layouts/Section.astro';
+
+import { useTranslations } from '@/i18n';
+
+const { t } = useTranslations(Astro.url);
+
+import { getCollection } from 'astro:content';
+
+const technologies = await getCollection('technologies');
+---
+
+<Section class="flex flex-row-reverse items-center justify-center gap-10">
+  <div class="w-full">
+    <div class="@container">
+      <h3 class="mb-5 text-center text-2xl font-semibold">{t('index.skills.title')}</h3>
+      <div class="grid grid-cols-3 gap-3 @md:grid-cols-4 @2xl:grid-cols-6" id="skills-showcase">
+        {
+          technologies.map((technology) => (
+            <div class="col-span-1 flex w-full items-center justify-center">
+              <div class="group/skill h-26 w-26 relative">
+                <img
+                  alt={technology.data.name}
+                  class:list={[
+                    'absolute right-5 top-2 h-16 w-16 scale-0 transform-gpu opacity-0 duration-300 ease-in-out group-hover/skill:scale-125',
+                    technology.data.invert === 'dark'
+                      ? 'dark:invert'
+                      : technology.data.invert === 'light'
+                        ? 'invert'
+                        : undefined
+                  ]}
+                  {...technology.data.icon}
+                />
+                <span class="absolute bottom-0 left-0 flex w-full justify-center">
+                  <span class="text-sm font-medium opacity-0 transition-opacity duration-300 ease-in-out group-hover/skill:opacity-100">
+                    {technology.data.name}
+                  </span>
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <div class="lg:w-112 2xl:w-128 hidden flex-shrink-0 sm:block sm:w-80 md:w-96">
+    <img alt="placeholder" height={skillsIcon.height} width={skillsIcon.width} src={skillsIcon.src} />
+  </div>
+</Section>
+<script>
+  const container = document.getElementById('skills-showcase')!;
+  const skillIcons = container.querySelectorAll('div > img');
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        observer.disconnect();
+        for (let i = 0; i < skillIcons.length; i++) {
+          setTimeout(() => {
+            skillIcons.item(i).classList.replace('opacity-0', 'opacity-100');
+            skillIcons.item(i).classList.replace('scale-0', 'scale-100');
+          }, i * 100);
+        }
+      }
+    });
+  });
+  observer.observe(container);
+</script>

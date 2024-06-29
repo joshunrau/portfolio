@@ -8,5 +8,11 @@
       "en": "Hi, I'm Josh",
       "fr": "Bonjour, c'est Josh"
     }
+  },
+  "skills": {
+    "title": {
+      "en": "Skills",
+      "fr": "Mes compétences"
+    }
   }
 }
