@@ -20,7 +20,7 @@ export default defineConfig({
         }
       }
     }),
-    tailwind()
+    tailwind({ applyBaseStyles: false })
   ],
   output: 'static',
   site: 'https://joshuaunrau.com'

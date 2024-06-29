@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /** COLORS */
+    --background: theme(colors.slate.100);
+    --border: theme(colors.slate.300);
+    --destructive: theme(colors.red.600);
+    --destructive-foreground: theme(colors.white);
+    --foreground: theme(colors.slate.900);
+    --input: theme(colors.slate.300) --muted: theme(colors.slate.200);
+    --muted: theme(colors.slate.200);
+    --muted-foreground: theme(colors.slate.700);
+    --primary: theme(colors.slate.800);
+    --primary-foreground: theme(colors.slate.100);
+    --ring: theme(colors.sky.500);
+    --secondary: theme(colors.slate.50);
+    --secondary-foreground: theme(colors.slate.900);
+    /** OTHER */
+    --radius: 0.5rem;
+  }
+
+  [data-mode='dark'] {
+    /** COLORS */
+    --background: theme(colors.slate.900);
+    --border: theme(colors.slate.700);
+    --foreground: theme(colors.slate.100);
+    --input: theme(colors.slate.700);
+    --muted: theme(colors.slate.800);
+    --muted-foreground: theme(colors.slate.300);
+    --primary: theme(colors.sky.700);
+    --primary-foreground: theme(colors.slate.100);
+    --ring: theme(colors.slate.800);
+    --secondary: theme(colors.slate.800);
+    --secondary-foreground: theme(colors.slate.100);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
