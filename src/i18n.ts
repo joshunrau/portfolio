@@ -1,6 +1,6 @@
 import common from './translations/common.json';
 import index from './translations/index.json';
-import { get } from './utils';
+import { get, isPlainObject } from './utils';
 
 type ExtractTranslationKey<T extends { [key: string]: unknown }, Key = keyof T> = Key extends string
   ? T[Key] extends { [key: string]: unknown }
@@ -27,7 +27,7 @@ export const useTranslations = (url: URL) => {
     resolvedLanguage,
     t: (key: TranslationKey) => {
       const value = get(translations, key);
-      if (typeof value === 'string') {
+      if (!isPlainObject(value)) {
         return value;
       }
       return value[resolvedLanguage];
