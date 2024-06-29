@@ -32,6 +32,7 @@
     "prettier": "^3.3.2",
     "sharp": "^0.33.4",
     "tailwindcss": "^3.4.4",
+    "type-fest": "^4.20.1",
     "typescript": "~5.4.5"
   },
   "prettier": "@joshunrau/prettier-config"
