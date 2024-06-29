@@ -13,6 +13,7 @@ type Props = {
 
 const { altLanguage, resolvedLanguage } = useTranslations(Astro.url);
 const { meta } = Astro.props;
+const basePathname = Astro.url.pathname.replace(/^\/fr/, '');
 ---
 
 <!doctype html>
@@ -28,8 +29,10 @@ const { meta } = Astro.props;
     <meta property="og:description" content={meta.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-    <meta property="og:locale" content={resolvedLanguage} />
-    <meta property="og:locale:alternate" content={altLanguage} />
+    <link rel="alternate" href={new URL(basePathname, Astro.site)} hreflang="en" />
+    <link rel="alternate" href={new URL(`/fr${basePathname}`, Astro.site)} hreflang="fr" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="flex min-h-screen flex-col bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
     <header></header>
