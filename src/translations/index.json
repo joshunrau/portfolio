@@ -1,14 +1,4 @@
 {
-  "meta": {
-    "title": {
-      "en": "Joshua Unrau - Personal Portfolio",
-      "fr": "Joshua Unrau - Portfolio personnel"
-    },
-    "description": {
-      "en": "Joshua Unrau is a software developer based in Montreal. He is passionate about implementing innovative, open-source solutions.",
-      "fr": "Joshua Unrau est un développeur de logiciels basé à Montréal. Il se passionne pour la mise en œuvre de solutions novatrices à code source ouvert."
-    }
-  },
   "hero": {
     "heading": {
       "en": "Hi, I'm Josh",

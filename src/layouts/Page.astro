@@ -1,11 +1,14 @@
 ---
-import { useTranslations } from '@/i18n';
 import avatar from '@/assets/avatar.png';
+import Header from '@/components/Header.astro';
+import { useTranslations } from '@/i18n';
 
 import '@/styles/globals.css';
+import { cn } from '@/utils';
 
 type Props = {
-  meta: {
+  className?: string;
+  meta?: {
     title: string;
     description: string;
     keywords: string[];
@@ -13,8 +16,12 @@ type Props = {
 };
 
 const { resolvedLanguage, t } = useTranslations(Astro.url);
-const { meta } = Astro.props;
+const { className, meta } = Astro.props;
 const basePathname = Astro.url.pathname.replace(/^\/fr/, '');
+
+const title = meta?.title ?? t('common.meta.title');
+const description = meta?.description ?? t('common.meta.description');
+const keywords = ['Joshua', 'Unrau'];
 ---
 
 <!doctype html>
@@ -22,12 +29,12 @@ const basePathname = Astro.url.pathname.replace(/^\/fr/, '');
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{meta.title}</title>
-    <meta name="description" content={meta.description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="author" content="Joshua Unrau" />
-    <meta name="keywords" content={meta.keywords.join(', ')} />
-    <meta property="og:title" content={meta.title} />
-    <meta property="og:description" content={meta.description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:image" content={avatar.src} />
@@ -40,8 +47,8 @@ const basePathname = Astro.url.pathname.replace(/^\/fr/, '');
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="flex min-h-screen flex-col bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-    <header></header>
-    <main>
+    <Header />
+    <main class={cn('container grow py-16', className)}>
       <slot />
     </main>
     <footer></footer>

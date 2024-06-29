@@ -1,14 +1,11 @@
 ---
-import { useTranslations } from '@/i18n';
 import Page from '@/layouts/Page.astro';
-
-const { t } = useTranslations(Astro.url);
 
 export const getStaticPaths = () => {
   return [{ params: { locale: undefined } }, { params: { locale: 'fr' } }];
 };
 ---
 
-<Page meta={{ title: t('index.meta.title'), description: t('index.meta.description'), keywords: ['Joshua', 'Unrau'] }}>
+<Page>
   <h1>Hello</h1>
 </Page>
