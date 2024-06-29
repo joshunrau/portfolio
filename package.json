@@ -11,6 +11,7 @@
     "build": "astro build",
     "dev": "astro dev",
     "format": "prettier --write src",
+    "format:translations": "find src/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "astro check && eslint --fix src",
     "prepare": "husky",
     "preview": "astro preview"
@@ -33,6 +34,7 @@
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "sharp": "^0.33.4",
+    "sort-json": "^2.0.1",
     "tailwindcss": "^3.4.4",
     "type-fest": "^4.20.1",
     "typescript": "~5.4.5"

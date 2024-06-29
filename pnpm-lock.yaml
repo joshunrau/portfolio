@@ -53,6 +53,9 @@ importers:
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
+      sort-json:
+        specifier: ^2.0.1
+        version: 2.0.1
       tailwindcss:
         specifier: ^3.4.4
         version: 3.4.4
@@ -1456,10 +1459,20 @@ packages:
       { integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA== }
     engines: { node: '>=6' }
 
+  detect-indent@5.0.0:
+    resolution:
+      { integrity: sha512-rlpvsxUtM0PQvy9iZe640/IWwWYyBsTApREbA1pHOpmOUIl9MkP/U4z7vTtg4Oaojvqhxt7sdufnT0EzGaR31g== }
+    engines: { node: '>=4' }
+
   detect-libc@2.0.3:
     resolution:
       { integrity: sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw== }
     engines: { node: '>=8' }
+
+  detect-newline@2.1.0:
+    resolution:
+      { integrity: sha512-CwffZFvlJffUg9zZA0uqrjQayUTC8ob94pnr5sFwaVv3IOmkfUHcWH+jXaQK3askE51Cqe8/9Ql/0uXNwqZ8Zg== }
+    engines: { node: '>=0.10.0' }
 
   deterministic-object-hash@2.0.2:
     resolution:
@@ -2631,6 +2644,10 @@ packages:
       { integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow== }
     engines: { node: '>=16 || 14 >=14.17' }
 
+  minimist@1.2.8:
+    resolution:
+      { integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA== }
+
   minipass@7.1.2:
     resolution:
       { integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw== }
@@ -3284,6 +3301,11 @@ packages:
   slashes@3.0.12:
     resolution:
       { integrity: sha512-Q9VME8WyGkc7pJf6QEkj3wE+2CnvZMI+XJhwdTPR8Z/kWQRXi7boAWLDibRPyHRTUTPx5FaU7MsyrjI3yLB4HA== }
+
+  sort-json@2.0.1:
+    resolution:
+      { integrity: sha512-s8cs2bcsQCzo/P2T/uoU6Js4dS/jnX8+4xunziNoq9qmSpZNCrRIAIvp4avsz0ST18HycV4z/7myJ7jsHWB2XQ== }
+    hasBin: true
 
   source-map-js@1.2.0:
     resolution:
@@ -5174,7 +5196,11 @@ snapshots:
 
   dequal@2.0.3: {}
 
+  detect-indent@5.0.0: {}
+
   detect-libc@2.0.3: {}
+
+  detect-newline@2.1.0: {}
 
   deterministic-object-hash@2.0.2:
     dependencies:
@@ -6448,6 +6474,8 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.1
 
+  minimist@1.2.8: {}
+
   minipass@7.1.2: {}
 
   mrmime@2.0.0: {}
@@ -7013,6 +7041,12 @@ snapshots:
   slash@3.0.0: {}
 
   slashes@3.0.12: {}
+
+  sort-json@2.0.1:
+    dependencies:
+      detect-indent: 5.0.0
+      detect-newline: 2.1.0
+      minimist: 1.2.8
 
   source-map-js@1.2.0: {}
 
