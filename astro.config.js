@@ -1,3 +1,5 @@
+import * as path from 'node:path';
+
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig, sharpImageService } from 'astro/config';
@@ -23,5 +25,15 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false })
   ],
   output: 'static',
-  site: 'https://joshuaunrau.com'
+  server: {
+    port: 4000
+  },
+  site: 'https://joshuaunrau.com',
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve(import.meta.dirname, 'src')
+      }
+    }
+  }
 });
