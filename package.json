@@ -15,6 +15,10 @@
     "prepare": "husky",
     "preview": "astro preview"
   },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0"
+  },
   "devDependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/sitemap": "^3.1.6",
