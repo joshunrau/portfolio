@@ -49,9 +49,9 @@ const keywords = ['Joshua', 'Unrau'];
     <script is:inline src={initThemeScript}></script>
     <!-- <script defer data-api="/api/event" data-domain="www.joshuaunrau.com" src="/js/script.js"></script> -->
   </head>
-  <body class="flex min-h-screen flex-col bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+  <body class="flex min-h-screen flex-col bg-slate-100 pt-16 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
     <Header />
-    <main class={cn('container grow py-16', className)}>
+    <main class={cn('container grow', className)}>
       <slot />
     </main>
   </body>

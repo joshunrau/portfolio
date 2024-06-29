@@ -43,6 +43,11 @@ export default {
           DEFAULT: 'var(--secondary)',
           foreground: 'var(--secondary-foreground)'
         }
+      },
+      spacing: {
+        26: '6.5rem',
+        112: '28rem',
+        128: '32rem'
       }
     }
   }
