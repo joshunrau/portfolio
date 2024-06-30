@@ -1,10 +1,18 @@
-<script>
+<script lang="ts">
+  import { onDestroy } from 'svelte';
+  import { i18n, type Language } from '$lib/i18n';
   import ChevronDownIcon from '$lib/icons/ChevronDownIcon.svelte';
   import { cn } from '$lib/utils/cn';
 
-  const resolvedLanguage = 'en';
-
   let isOpen = false;
+  let resolvedLanguage: Language;
+
+  const unsubscribe = i18n.subscribe((i18n) => {
+    resolvedLanguage = i18n.resolvedLanguage;
+    isOpen = false;
+  });
+
+  onDestroy(unsubscribe);
 </script>
 
 <div class="relative">
