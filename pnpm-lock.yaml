@@ -15,8 +15,8 @@ importers:
         version: 2.3.0
     devDependencies:
       '@joshunrau/eslint-config':
-        specifier: ^4.3.2
-        version: 4.3.2(astro-eslint-parser@1.0.2(typescript@5.5.2))(eslint@8.57.0)(svelte@4.2.18)(typescript@5.5.2)
+        specifier: ^4.3.3
+        version: 4.3.3(astro-eslint-parser@1.0.2(typescript@5.5.2))(eslint@8.57.0)(svelte@4.2.18)(typescript@5.5.2)
       '@joshunrau/prettier-config':
         specifier: ^0.4.0
         version: 0.4.0(husky@9.0.11)(prettier-plugin-svelte@3.2.5(prettier@3.3.2)(svelte@4.2.18))(prettier-plugin-tailwindcss@0.6.5(prettier-plugin-svelte@3.2.5(prettier@3.3.2)(svelte@4.2.18))(prettier@3.3.2))(prettier@3.3.2)
@@ -304,9 +304,9 @@ packages:
       { integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA== }
     engines: { node: '>=12' }
 
-  '@joshunrau/eslint-config@4.3.2':
+  '@joshunrau/eslint-config@4.3.3':
     resolution:
-      { integrity: sha512-aA0vRJyCldADzVwtlVI1DjKkVaA1++S3nriV+zDx987Rwllh4fSo1kEjoD57/9JGvsca3EhSu8JoCjKJkspL/g== }
+      { integrity: sha512-IRJmxmnq/NMUzjUQgnA2CK4wC75IITubjit8XK9Jl99rK5pumGc97g+fIsQgmtr6sQxjNtYUgsA6eh2+8kbL/g== }
     peerDependencies:
       eslint: 8.x
       typescript: 5.x
@@ -2782,7 +2782,7 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@joshunrau/eslint-config@4.3.2(astro-eslint-parser@1.0.2(typescript@5.5.2))(eslint@8.57.0)(svelte@4.2.18)(typescript@5.5.2)':
+  '@joshunrau/eslint-config@4.3.3(astro-eslint-parser@1.0.2(typescript@5.5.2))(eslint@8.57.0)(svelte@4.2.18)(typescript@5.5.2)':
     dependencies:
       eslint: 8.57.0
       eslint-plugin-astro: 1.2.2(eslint@8.57.0)(typescript@5.5.2)

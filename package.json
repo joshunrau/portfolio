@@ -21,7 +21,7 @@
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
-    "@joshunrau/eslint-config": "^4.3.2",
+    "@joshunrau/eslint-config": "^4.3.3",
     "@joshunrau/prettier-config": "^0.4.0",
     "@sveltejs/adapter-auto": "^3.2.2",
     "@sveltejs/kit": "^2.5.18",
