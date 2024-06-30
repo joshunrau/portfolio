@@ -4,10 +4,13 @@ import tailwindcss from 'tailwindcss';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	css: {
+  css: {
     postcss: {
       plugins: [autoprefixer(), tailwindcss()]
     }
   },
-	plugins: [sveltekit()]
+  plugins: [sveltekit()],
+  server: {
+    port: 4000
+  }
 });
