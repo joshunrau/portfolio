@@ -1,11 +1,4 @@
-import { clsx } from 'clsx';
-import type { ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 import type { Get, IfUnknown } from 'type-fest';
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 /**
  * Replicates _.get from lodash, without pulling in a bunch of unnecessary code for legacy browsers
