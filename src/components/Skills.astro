@@ -19,7 +19,7 @@ const technologies = await getCollection('technologies');
         {
           technologies.map((technology) => (
             <div class="col-span-1 flex w-full items-center justify-center">
-              <div class="group/skill h-26 w-26 relative">
+              <div class="group/skill relative h-26 w-26">
                 <img
                   alt={technology.data.name}
                   class:list={[
@@ -44,12 +44,12 @@ const technologies = await getCollection('technologies');
       </div>
     </div>
   </div>
-  <div class="lg:w-112 2xl:w-128 hidden flex-shrink-0 sm:block sm:w-80 md:w-96">
+  <div class="hidden flex-shrink-0 sm:block sm:w-80 md:w-96 lg:w-112 2xl:w-128">
     <img alt="placeholder" height={skillsIcon.height} width={skillsIcon.width} src={skillsIcon.src} />
   </div>
 </Section>
 <script>
-  const container = document.getElementById('skills-showcase')!;
+  const container = document.getElementById('skills-showcase');
   const skillIcons = container.querySelectorAll('div > img');
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
