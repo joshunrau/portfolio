@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "description": {
+      "en": "I am a full-stack software developer at the Douglas Research Centre, where I lead the development of Open Data Capture, an open-source, web-based platform for clinical research data collection.",
+      "fr": "Je suis développeur de logiciels au Centre de recherche Douglas, où je dirige le développement d'Open Data Capture, une plateforme web à code source ouvert pour la collecte de données de recherche clinique."
+    },
+    "heading": {
+      "en": "Hi, I'm Josh",
+      "fr": "Bonjour, c'est Josh"
+    }
+  },
+  "skills": {
+    "title": {
+      "en": "Skills",
+      "fr": "Mes compétences"
+    }
+  }
+}
