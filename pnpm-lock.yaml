@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      '@xterm/xterm':
+        specifier: ^5.5.0
+        version: 5.5.0
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -660,6 +663,10 @@ packages:
       { integrity: sha512-7LeioS1yE5hwPpQfD3DdH04tuugKjo5KrJk3yK5kAI3Lh76iSsK/ezoFQfzuT08X3ZASQOd1y9ePjLNI9+TxTQ== }
     engines: { node: '>=16' }
     hasBin: true
+
+  '@xterm/xterm@5.5.0':
+    resolution:
+      { integrity: sha512-hqJHYaQb5OptNunnyAnkHyM8aCjZ1MEIDTQu1iIbbTD/xops91NB5yq1ZK/dC2JDbVWtF23zUtl9JE2NqwT87A== }
 
   abbrev@1.1.1:
     resolution:
@@ -3336,6 +3343,8 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@xterm/xterm@5.5.0': {}
 
   abbrev@1.1.1: {}
 
