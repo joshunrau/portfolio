@@ -50,10 +50,12 @@
     terminal.open(document.getElementById('terminal')!);
     // terminal.write(TERMINAL_GREETER);
     terminal.write('$ ');
-    terminal.onData((data, arg2) => {
+    terminal.onData((data) => {
       if (data === BACKSPACE) {
-        terminal.write('\b \b');
-        command = command.substring(0, command.length - 1);
+        if (terminal.buffer.normal.cursorX > 2) {
+          terminal.write('\b \b');
+          command = command.substring(0, command.length - 1);
+        }
       } else if (data === ESCAPE) {
         $terminalStore.isOpen = false;
       } else if (data === '\r') {
