@@ -3,7 +3,6 @@
   import mongodbIcon from '$lib/icons/mongodb.svg';
   import nestjsIcon from '$lib/icons/nestjs.svg';
   import reactIcon from '$lib/icons/react.svg';
-  import skillsFilterIcon from '$lib/icons/skills-filler.svg';
   import pythonIcon from '$lib/icons/python.svg';
   import htmlIcon from '$lib/icons/html.svg';
   import cssIcon from '$lib/icons/css.svg';
@@ -15,6 +14,8 @@
   import linuxIcon from '$lib/icons/linux.svg';
   import { cn } from '$lib/utils/cn';
   import { i18n } from '$lib/i18n';
+
+  import SkillsIllustration from './SkillsIllustration.svelte';
 
   import Section from './Section.svelte';
 
@@ -86,6 +87,6 @@
     </div>
   </div>
   <div class="hidden flex-shrink-0 sm:block sm:w-80 md:w-96 lg:w-112 2xl:w-128">
-    <img alt="placeholder" src={skillsFilterIcon} />
+    <SkillsIllustration />
   </div>
 </Section>

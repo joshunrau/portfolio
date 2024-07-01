@@ -15,6 +15,6 @@
     </p>
   </div>
   <div class="hidden flex-shrink-0 sm:block sm:w-80 md:w-96 lg:w-112 2xl:w-128">
-    <img alt={$i18n.t('common.avatar')} src={avatar} />
+    <img alt={$i18n.t('common.avatar')} width="1024" height="1024" src={avatar} />
   </div>
 </Section>
