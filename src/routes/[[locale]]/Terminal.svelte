@@ -3,7 +3,7 @@
   import { onDestroy, onMount } from 'svelte';
   import type { Unsubscriber } from 'svelte/store';
   import { cn } from '$lib/utils/cn';
-  import { interpretCommand, isAlphaNumeric, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
+  import { interpretCommand, isAlphaNumeric, isASCII, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
 
   const BACKSPACE = '\u007f';
   const ESCAPE = '\u001b';
@@ -51,14 +51,9 @@
     // terminal.write(TERMINAL_GREETER);
     terminal.write('$ ');
     terminal.onData((data, arg2) => {
-      if (isAlphaNumeric(data) || data === SPACE) {
-        terminal.write(data);
-        command += data;
-      } else if (data === BACKSPACE) {
-        if (terminal.buffer.active.cursorX > PROMPT.length) {
-          terminal.write('\b \b');
-          command = command.substring(0, command.length - 1);
-        }
+      if (data === BACKSPACE) {
+        terminal.write('\b \b');
+        command = command.substring(0, command.length - 1);
       } else if (data === ESCAPE) {
         $terminalStore.isOpen = false;
       } else if (data === '\r') {
@@ -70,6 +65,9 @@
         }
         command = '';
         terminal.write('\r\n' + PROMPT);
+      } else if (isASCII(data)) {
+        terminal.write(data);
+        command += data;
       }
     });
     unsubscribe = terminalStore.subscribe(({ isOpen }) => {
