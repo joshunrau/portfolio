@@ -7,6 +7,7 @@
 
   const BACKSPACE = '\u007f';
   const ESCAPE = '\u001b';
+  const SPACE = '\u0020';
 
   const PROMPT = '% ';
 
@@ -50,7 +51,7 @@
     // terminal.write(TERMINAL_GREETER);
     terminal.write('$ ');
     terminal.onData((data, arg2) => {
-      if (isAlphaNumeric(data)) {
+      if (isAlphaNumeric(data) || data === SPACE) {
         terminal.write(data);
         command += data;
       } else if (data === BACKSPACE) {
