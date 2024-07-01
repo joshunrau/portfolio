@@ -62,10 +62,12 @@
         $terminalStore.isOpen = false;
       } else if (data === '\r') {
         const [cmd, ...args] = command.split(' ');
-        if (command) {
+        if (cmd === 'clear') {
+          terminal.clear();
+        } else if (cmd) {
           terminal.write('\r\n' + interpretCommand(cmd, ...args));
-          command = '';
         }
+        command = '';
         terminal.write('\r\n' + PROMPT);
       }
     });
