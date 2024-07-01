@@ -5,6 +5,8 @@
   import { cn } from '$lib/utils/cn';
   import { isASCII, LAST_TERMINAL_LOGIN_KEY, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
 
+  const ARROW_UP = '\u001b[A';
+  const ARROW_DOWN = '\u001b[B';
   const BACKSPACE = '\u007f';
   const ESCAPE = '\u001b';
 
@@ -66,7 +68,11 @@
     });
     terminal.write('$ ');
     terminal.onData((data) => {
-      if (data === BACKSPACE) {
+      if (data === ARROW_UP) {
+        return;
+      } else if (data === ARROW_DOWN) {
+        return;
+      } else if (data === BACKSPACE) {
         if (terminal.buffer.normal.cursorX > 2) {
           terminal.write('\b \b');
           command = command.substring(0, command.length - 1);
