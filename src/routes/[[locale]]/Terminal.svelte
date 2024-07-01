@@ -85,5 +85,5 @@
     $terminalStore.isOpen = false;
   }}
 >
-  <div class="max-w-screen-md overflow-hidden rounded-md border" id="terminal" />
+  <div class="max-w-screen-md overflow-hidden rounded-md border [&_.xterm-screen]:p-4" id="terminal" />
 </div>
