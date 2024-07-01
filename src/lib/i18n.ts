@@ -21,12 +21,11 @@ type TranslationKey = ExtractTranslationKey<Translations>;
 
 const translations = { common, index };
 
-export const useTranslations = (url: URL) => {
-  const resolvedLanguage = url.pathname.split('/')[1] === 'fr' ? 'fr' : 'en';
+export const i18n = derived(page, ($page) => {
+  const resolvedLanguage = $page.params.locale === 'fr' ? 'fr' : 'en';
   const altLanguage = resolvedLanguage === 'en' ? 'fr' : 'en';
   return {
     altLanguage,
-    altURL: new URL(url.href.replace(`/${resolvedLanguage}`, `/${altLanguage}`)),
     resolvedLanguage,
     t: (key: TranslationKey) => {
       const value = get(translations, key);
@@ -34,17 +33,7 @@ export const useTranslations = (url: URL) => {
         return value;
       }
       return value[resolvedLanguage];
-    },
-    translatePath: (path: string) => {
-      return `/${resolvedLanguage}${path}`;
     }
-  } as const;
-};
-
-export const i18n = derived(page, ($page) => {
-  const resolvedLanguage = $page.params.locale === 'fr' ? 'fr' : 'en';
-  return {
-    resolvedLanguage
   } as const;
 });
 
