@@ -1,5 +1,7 @@
 import { writable } from 'svelte/store';
 
+import { echo, ls, pwd } from './commands';
+
 export const TERMINAL_GREETER = String.raw`
 ____   ___   ____  ______  _____   ___   _      ____  ___  
 |    \ /   \ |    \|      ||     | /   \ | |    |    |/   \ 
@@ -41,8 +43,14 @@ export function isAlphaNumeric(str: string) {
 
 export function interpretCommand(command: string, ...args: string[]) {
   command = command.trim();
-  if (command === 'echo') {
-    return args.join(' ');
+  switch (command) {
+    case 'echo':
+      return echo(...args);
+    case 'pwd':
+      return pwd();
+    case 'ls':
+      return ls();
+    default:
+      return `sh: ${command}: command not found`;
   }
-  return `sh: ${command}: command not found`;
 }
