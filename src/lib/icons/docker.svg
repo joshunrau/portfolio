@@ -1,9 +1,9 @@
-
+<svg
   width="800"
   height="800"
   viewBox="0 0 32 32"
   fill="none"
-  xmlns="http://www.w3.org/2000"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <circle cx="16" cy="16" r="14" fill="#1794D4" />
   <path
@@ -14,4 +14,4 @@
     d="M10 13h2v2h-2v-2zM15 13h-2v2h2v-2zM16 13h2v2h-2v-2zM21 13h-2v2h2v-2zM15 10h-2v2h2v-2zM16 10h2v2h-2v-2z"
     fill="#fff"
   />
-<>
+</svg>

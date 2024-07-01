@@ -10,31 +10,50 @@
   import nodejsIcon from '$lib/icons/nodejs.svg';
   import nextjsIcon from '$lib/icons/nextjs.svg';
   import dockerIcon from '$lib/icons/docker.svg';
-  import githubIcon from '$lib/icons/github.svg';
+  // import githubIcon from '$lib/icons/github.svg';
   import javascriptIcon from '$lib/icons/javascript.svg';
   import linuxIcon from '$lib/icons/linux.svg';
-  import linkIcon from '$lib/icons/link.svg';
   import { cn } from '$lib/utils/cn';
   import { i18n } from '$lib/i18n';
 
   import Section from './Section.svelte';
 
   const technologies = [
-    { name: 'typescript', src: typescriptIcon },
-    { name: 'nestjs', src: nestjsIcon },
-    { name: 'css', src: cssIcon },
-    { name: 'nextjs', src: nextjsIcon, invert: 'dark' },
-    { name: 'docker', src: dockerIcon },
-    { name: 'react', src: reactIcon },
-    { name: 'html', src: htmlIcon },
-    { name: 'python', src: pythonIcon },
-    { name: 'nodejs', src: nodejsIcon },
-    { name: 'mongodb', src: mongodbIcon },
-    { name: 'linux', src: linuxIcon },
-    { name: 'github', src: githubIcon },
-    { name: 'javascript', src: javascriptIcon },
-    { name: 'link', src: linkIcon }
+    { name: 'TypeScript', src: typescriptIcon },
+    { name: 'NestJS', src: nestjsIcon },
+    { name: 'CSS', src: cssIcon },
+    { name: 'Next.js', src: nextjsIcon, invert: 'dark' },
+    { name: 'Docker', src: dockerIcon },
+    { name: 'React', src: reactIcon },
+    { name: 'HTML', src: htmlIcon },
+    { name: 'Python', src: pythonIcon },
+    { name: 'Node.js', src: nodejsIcon },
+    { name: 'MongoDB', src: mongodbIcon },
+    { name: 'Linux', src: linuxIcon },
+    // { name: 'GitHub', src: githubIcon },
+    { name: 'JavaScript', src: javascriptIcon }
   ];
+
+  // TO BE REPLACED WITH DECLARATIVE APPROACH
+  import { onMount } from 'svelte';
+  onMount(() => {
+    const container = document.getElementById('skills-showcase')!;
+    const skillIcons = container.querySelectorAll('div > img');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          for (let i = 0; i < skillIcons.length; i++) {
+            setTimeout(() => {
+              skillIcons.item(i).classList.replace('opacity-0', 'opacity-100');
+              skillIcons.item(i).classList.replace('scale-0', 'scale-100');
+            }, i * 100);
+          }
+        }
+      });
+    });
+    observer.observe(container);
+  });
 </script>
 
 <Section className="flex flex-row-reverse items-center justify-center gap-10">
