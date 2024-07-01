@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-import { echo, ls, pwd } from './commands';
+import { echo, ls, pwd, whoami } from './commands';
 
 export const TERMINAL_GREETER = String.raw`
 ____   ___   ____  ______  _____   ___   _      ____  ___  
@@ -50,6 +50,8 @@ export function interpretCommand(command: string, ...args: string[]) {
       return pwd();
     case 'ls':
       return ls();
+    case 'whoami':
+      return whoami();
     default:
       return `sh: ${command}: command not found`;
   }

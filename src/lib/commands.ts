@@ -9,3 +9,7 @@ export function echo(...args: string[]) {
 export function ls() {
   return '';
 }
+
+export function whoami() {
+  return 'root';
+}
