@@ -38,3 +38,11 @@ export function isAlphaNumeric(str: string) {
   }
   return true;
 }
+
+export function interpretCommand(command: string, ...args: string[]) {
+  command = command.trim();
+  if (command === 'echo') {
+    return args.join(' ');
+  }
+  return `sh: ${command}: command not found`;
+}

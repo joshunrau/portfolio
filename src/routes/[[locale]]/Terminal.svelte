@@ -3,7 +3,7 @@
   import { onDestroy, onMount } from 'svelte';
   import type { Unsubscriber } from 'svelte/store';
   import { cn } from '$lib/utils/cn';
-  import { isAlphaNumeric, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
+  import { interpretCommand, isAlphaNumeric, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
 
   const BACKSPACE = '\u007f';
   const ESCAPE = '\u001b';
@@ -13,7 +13,7 @@
   let terminal: X.Terminal;
   let unsubscribe: Unsubscriber;
 
-  let command: string;
+  let command: string = '';
 
   onMount(() => {
     terminal = new X.Terminal({
@@ -48,23 +48,27 @@
     });
     terminal.open(document.getElementById('terminal')!);
     // terminal.write(TERMINAL_GREETER);
-    terminal.write('% ');
+    terminal.write('$ ');
     terminal.onData((data, arg2) => {
       if (isAlphaNumeric(data)) {
         terminal.write(data);
+        command += data;
       } else if (data === BACKSPACE) {
         if (terminal.buffer.active.cursorX > PROMPT.length) {
           terminal.write('\b \b');
+          command = command.substring(0, command.length - 1);
         }
       } else if (data === ESCAPE) {
         $terminalStore.isOpen = false;
-      } else {
-        console.log(terminal.buffer.normal.getLine(0));
+      } else if (data === '\r') {
+        const [cmd, ...args] = command.split(' ');
+        if (command) {
+          terminal.write('\r\n' + interpretCommand(cmd, ...args));
+          command = '';
+        }
+        terminal.write('\r\n' + PROMPT);
       }
     });
-    // terminal.onKey((arg) => {
-    //   console.log(arg);
-    // });
     unsubscribe = terminalStore.subscribe(({ isOpen }) => {
       if (isOpen) {
         document.body.style.overflow = 'hidden';
