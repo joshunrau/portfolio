@@ -1,6 +1,6 @@
 <script lang="ts">
   import { i18n } from '$lib/i18n';
-  import avatar from '$lib/images/avatar.png';
+  import avatar from '$lib/images/avatar.webp';
 
   import Section from './Section.svelte';
 </script>

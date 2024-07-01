@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores';
   import Header from './Header.svelte';
-  import avatar from '$lib/images/avatar.png';
+  import avatar from '$lib/images/avatar.webp';
   import { i18n } from '$lib/i18n';
 
   import '../../app.css';
