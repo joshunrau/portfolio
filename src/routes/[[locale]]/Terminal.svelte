@@ -5,6 +5,9 @@
   import { cn } from '$lib/utils/cn';
   import { isAlphaNumeric, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
 
+  const BACKSPACE = '\u007f';
+  const ESCAPE = '\u001b';
+
   let terminal: X.Terminal;
   let unsubscribe: Unsubscriber;
 
@@ -43,11 +46,12 @@
     // terminal.write(TERMINAL_GREETER);
     terminal.write('% ');
     terminal.onData((data, arg2) => {
-      console.log(terminal.element);
       if (isAlphaNumeric(data)) {
         terminal.write(data);
-      } else if (data === '\u007f') {
+      } else if (data === BACKSPACE) {
         terminal.write('\b \b');
+      } else if (data === ESCAPE) {
+        $terminalStore.isOpen = false;
       } else {
         console.log(terminal.buffer);
       }
@@ -85,5 +89,5 @@
     $terminalStore.isOpen = false;
   }}
 >
-  <div class="max-w-screen-md overflow-hidden rounded-md border [&_.xterm-screen]:p-4" id="terminal" />
+  <div class="max-w-screen-md overflow-hidden rounded-md border shadow-xl [&_.xterm-screen]:p-4" id="terminal" />
 </div>
