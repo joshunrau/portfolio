@@ -72,12 +72,13 @@
       } else if (data === '\r') {
         const [cmd, ...args] = command.split(' ');
         if (cmd === 'clear') {
-          terminal.clear();
+          terminal.reset();
+          terminal.write(PROMPT);
         } else if (cmd) {
           terminal.write('\r\n' + interpretCommand(cmd, ...args));
+          terminal.write('\r\n' + PROMPT);
         }
         command = '';
-        terminal.write('\r\n' + PROMPT);
       } else if (isASCII(data)) {
         terminal.write(data);
         command += data;
