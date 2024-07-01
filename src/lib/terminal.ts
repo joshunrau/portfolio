@@ -1,13 +1,40 @@
 import { writable } from 'svelte/store';
 
 export const TERMINAL_GREETER = String.raw`
- ______   ______     ______     ______   ______   ______     __         __     ______    
-/\  == \ /\  __ \   /\  == \   /\__  _\ /\  ___\ /\  __ \   /\ \       /\ \   /\  __ \   
-\ \  _-/ \ \ \/\ \  \ \  __<   \/_/\ \/ \ \  __\ \ \ \/\ \  \ \ \____  \ \ \  \ \ \/\ \  
- \ \_\    \ \_____\  \ \_\ \_\    \ \_\  \ \_\    \ \_____\  \ \_____\  \ \_\  \ \_____\ 
-  \/_/     \/_____/   \/_/ /_/     \/_/   \/_/     \/_____/   \/_____/   \/_/   \/_____/ 
+____   ___   ____  ______  _____   ___   _      ____  ___  
+|    \ /   \ |    \|      ||     | /   \ | |    |    |/   \ 
+|  o  )     ||  D  )      ||   __||     || |     |  ||     |
+|   _/|  O  ||    /|_|  |_||  |_  |  O  || |___  |  ||  O  |
+|  |  |     ||    \  |  |  |   _] |     ||     | |  ||     |
+|  |  |     ||  .  \ |  |  |  |   |     ||     | |  ||     |
+|__|   \___/ |__|\_| |__|  |__|    \___/ |_____||____|\___/              
 `;
 
 export const terminalStore = writable({
   isOpen: false
 });
+
+export function isASCII(str: string) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) > 127) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function isAlphaNumeric(str: string) {
+  let code, i, len;
+  for (i = 0, len = str.length; i < len; i++) {
+    code = str.charCodeAt(i);
+    if (
+      !(code > 47 && code < 58) && // numeric (0-9)
+      !(code > 64 && code < 91) && // upper alpha (A-Z)
+      !(code > 96 && code < 123)
+    ) {
+      // lower alpha (a-z)
+      return false;
+    }
+  }
+  return true;
+}
