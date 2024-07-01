@@ -14,5 +14,13 @@
       "en": "Skills",
       "fr": "Mes compétences"
     }
+  },
+  "openTerminal": {
+    "en": "Open Terminal",
+    "fr": "Ouvrir le terminal"
+  },
+  "viewGitHub": {
+    "en": "View GitHub",
+    "fr": "Voir GitHub"
   }
 }

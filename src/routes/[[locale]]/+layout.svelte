@@ -5,6 +5,8 @@
   import { i18n } from '$lib/i18n';
 
   import '../../app.css';
+  import '@xterm/xterm/css/xterm.css';
+  import Terminal from './Terminal.svelte';
 
   $: title = $i18n.t('common.meta.title');
   $: description = $i18n.t('common.meta.description');
@@ -28,6 +30,7 @@
   <link rel="alternate" href={$i18n.localizedURLs.fr.href} hreflang="fr" />
 </svelte:head>
 
+<Terminal />
 <Header />
 <main class="container">
   <slot />

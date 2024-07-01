@@ -64,18 +64,18 @@
       <div class="grid grid-cols-3 gap-3 @md:grid-cols-4 @2xl:grid-cols-6" id="skills-showcase">
         {#each technologies as technology}
           <div class="col-span-1 flex w-full items-center justify-center">
-            <div class="group/skill relative h-26 w-26">
+            <div class="group/skill relative flex h-26 w-26 flex-col items-center justify-center gap-3">
               <img
                 alt={technology.name}
                 class={cn(
-                  'absolute right-5 top-2 h-16 w-16 scale-0 transform-gpu opacity-0 duration-300 ease-in-out group-hover/skill:scale-125',
+                  'h-16 w-16 scale-0 transform-gpu opacity-0 duration-300 ease-in-out group-hover/skill:scale-125',
                   technology.invert === 'dark' ? 'dark:invert' : technology.invert === 'light' ? 'invert' : undefined
                 )}
                 src={technology.src}
               />
-              <span class="absolute bottom-0 left-0 flex w-full justify-center">
+              <span class="flex w-full justify-center">
                 <span
-                  class="text-sm font-medium opacity-0 transition-opacity duration-300 ease-in-out group-hover/skill:opacity-100"
+                  class="w-full text-center text-sm font-medium opacity-0 transition-opacity duration-300 ease-in-out group-hover/skill:opacity-100"
                 >
                   {technology.name}
                 </span>
