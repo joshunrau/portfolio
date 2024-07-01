@@ -8,8 +8,12 @@
   const BACKSPACE = '\u007f';
   const ESCAPE = '\u001b';
 
+  const PROMPT = '% ';
+
   let terminal: X.Terminal;
   let unsubscribe: Unsubscriber;
+
+  let command: string;
 
   onMount(() => {
     terminal = new X.Terminal({
@@ -49,11 +53,13 @@
       if (isAlphaNumeric(data)) {
         terminal.write(data);
       } else if (data === BACKSPACE) {
-        terminal.write('\b \b');
+        if (terminal.buffer.active.cursorX > PROMPT.length) {
+          terminal.write('\b \b');
+        }
       } else if (data === ESCAPE) {
         $terminalStore.isOpen = false;
       } else {
-        console.log(terminal.buffer);
+        console.log(terminal.buffer.normal.getLine(0));
       }
     });
     // terminal.onKey((arg) => {
