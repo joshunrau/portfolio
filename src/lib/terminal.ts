@@ -2,14 +2,15 @@ import { writable } from 'svelte/store';
 
 import { cd, echo, help, ls, pwd, whoami } from './commands';
 
+export const LAST_TERMINAL_LOGIN_KEY = 'LAST_TERMINAL_LOGIN';
+
 export const TERMINAL_GREETER = String.raw`
-____   ___   ____  ______  _____   ___   _      ____  ___  
-|    \ /   \ |    \|      ||     | /   \ | |    |    |/   \ 
-|  o  )     ||  D  )      ||   __||     || |     |  ||     |
-|   _/|  O  ||    /|_|  |_||  |_  |  O  || |___  |  ||  O  |
-|  |  |     ||    \  |  |  |   _] |     ||     | |  ||     |
-|  |  |     ||  .  \ |  |  |  |   |     ||     | |  ||     |
-|__|   \___/ |__|\_| |__|  |__|    \___/ |_____||____|\___/              
+ _____           _    __      _ _       
+|  __ \         | |  / _|    | (_)      
+| |__) |__  _ __| |_| |_ ___ | |_  ___  
+|  ___/ _ \| '__| __|  _/ _ \| | |/ _ \ 
+| |  | (_) | |  | |_| || (_) | | | (_) |
+|_|   \___/|_|   \__|_| \___/|_|_|\___/ 
 `;
 
 export const terminalStore = writable({

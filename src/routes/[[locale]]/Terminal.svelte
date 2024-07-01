@@ -3,13 +3,12 @@
   import { onDestroy, onMount } from 'svelte';
   import type { Unsubscriber } from 'svelte/store';
   import { cn } from '$lib/utils/cn';
-  import { interpretCommand, isAlphaNumeric, isASCII, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
+  import { interpretCommand, isASCII, LAST_TERMINAL_LOGIN_KEY, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
 
   const BACKSPACE = '\u007f';
   const ESCAPE = '\u001b';
-  const SPACE = '\u0020';
 
-  const PROMPT = '% ';
+  const PROMPT = '$ ';
 
   let terminal: X.Terminal;
   let unsubscribe: Unsubscriber;
@@ -17,11 +16,20 @@
   let command: string = '';
 
   onMount(() => {
+    const lastLogin = parseInt(window.localStorage.getItem(LAST_TERMINAL_LOGIN_KEY)!);
+    const message = Number.isNaN(lastLogin)
+      ? 'Welcome to your first session!'
+      : `Last login: ${new Date(lastLogin).toString()}`;
+    window.localStorage.setItem(LAST_TERMINAL_LOGIN_KEY, Date.now().toString());
+
     terminal = new X.Terminal({
       allowTransparency: true,
       cursorBlink: true,
       cursorStyle: 'bar',
       disableStdin: false,
+      fontSize: 12,
+      cols: 100,
+      rows: 30,
       fontFamily: 'MesloLGS NF',
       theme: {
         background: 'rgba(26, 27, 38, 0.8)',
@@ -48,7 +56,10 @@
       ignoreBracketedPasteMode: true
     });
     terminal.open(document.getElementById('terminal')!);
-    // terminal.write(TERMINAL_GREETER);
+    terminal.writeln(message);
+    TERMINAL_GREETER.split('\n').forEach((line) => {
+      terminal.writeln(line);
+    });
     terminal.write('$ ');
     terminal.onData((data) => {
       if (data === BACKSPACE) {
@@ -95,12 +106,15 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class={cn(
-    'fixed inset-0 flex items-center justify-center bg-black/80  backdrop-blur transition-opacity duration-300',
+    'fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur transition-opacity duration-300',
     $terminalStore.isOpen ? 'z-20' : '-z-10 opacity-0'
   )}
   on:click|self={() => {
     $terminalStore.isOpen = false;
   }}
 >
-  <div class="max-w-screen-md overflow-hidden rounded-md border shadow-xl [&_.xterm-screen]:p-4" id="terminal" />
+  <div
+    class="max-w-screen-md overflow-hidden rounded-md border border-slate-600 shadow-xl dark:border-slate-700 [&_.xterm-screen]:p-4"
+    id="terminal"
+  />
 </div>
