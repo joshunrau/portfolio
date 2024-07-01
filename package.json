@@ -21,7 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.3.0",
-    "wshell": "^0.0.1"
+    "wshell": "^0.0.2"
   },
   "devDependencies": {
     "@joshunrau/eslint-config": "^4.3.3",

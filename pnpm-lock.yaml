@@ -20,8 +20,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
       wshell:
-        specifier: ^0.0.1
-        version: 0.0.1
+        specifier: ^0.0.2
+        version: 0.0.2
     devDependencies:
       '@joshunrau/eslint-config':
         specifier: ^4.3.3
@@ -2860,9 +2860,9 @@ packages:
     resolution:
       { integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ== }
 
-  wshell@0.0.1:
+  wshell@0.0.2:
     resolution:
-      { integrity: sha512-M2yrM0P3wA1PYHfj8HvfjwSJ9VjSajPA3tiLmoiE4RfmWnHiqvC5cpGnxSB47VfWeaiRsU4Gi0LUp/w8KvnXJA== }
+      { integrity: sha512-LCrMmQDIuq4/oQ8dMbqaCqi9fv8JVddr0SxSSj7BCP8T4BAczsl7BEO0O6AGoh/vfxrjLtDwKYlfgbjaCOTFYA== }
 
   yallist@4.0.0:
     resolution:
@@ -5348,7 +5348,7 @@ snapshots:
 
   wrappy@1.0.2: {}
 
-  wshell@0.0.1: {}
+  wshell@0.0.2: {}
 
   yallist@4.0.0: {}
 
