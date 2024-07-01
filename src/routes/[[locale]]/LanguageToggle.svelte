@@ -6,9 +6,11 @@
 
   let isOpen = false;
   let resolvedLanguage: Language;
+  let localizedURLs: { readonly en: URL; readonly fr: URL };
 
   const unsubscribe = i18n.subscribe((i18n) => {
     resolvedLanguage = i18n.resolvedLanguage;
+    localizedURLs = i18n.localizedURLs;
     isOpen = false;
   });
 
@@ -34,13 +36,13 @@
   >
     <a
       class="block cursor-pointer p-2 text-center uppercase first:rounded-t-md last:rounded-b-md hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
-      href="/en"
+      href={localizedURLs.en.href}
     >
       en
     </a>
     <a
       class="block cursor-pointer p-2 text-center uppercase first:rounded-t-md last:rounded-b-md hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150"
-      href="/fr"
+      href={localizedURLs.fr.href}
     >
       fr
     </a>

@@ -24,8 +24,15 @@ const translations = { common, index };
 export const i18n = derived(page, ($page) => {
   const resolvedLanguage = $page.params.locale === 'fr' ? 'fr' : 'en';
   const altLanguage = resolvedLanguage === 'en' ? 'fr' : 'en';
+  const basePathname = $page.url.pathname.replace(/^\/fr/, '');
+  const site = $page.url.origin;
   return {
     altLanguage,
+    basePathname,
+    localizedURLs: {
+      en: new URL(basePathname, site),
+      fr: new URL(`/fr${basePathname}`, site)
+    },
     resolvedLanguage,
     t: (key: TranslationKey) => {
       const value = get(translations, key);
