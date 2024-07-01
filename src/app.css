@@ -39,6 +39,32 @@
 }
 
 @layer base {
+  @font-face {
+    font-family: 'MesloLGS NF';
+    src: local('MesloLGS NF'), local('MesloLGS-NF'), url('/fonts/MesloLGS-NF-Regular.ttf');
+    font-weight: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'MesloLGS NF';
+    src: local('MesloLGS NF Bold'), local('MesloLGS-NF-Bold'), url('/fonts/MesloLGS-NF-Bold.ttf');
+    font-weight: bold;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'MesloLGS NF';
+    src: local('MesloLGS NF Italic'), local('MesloLGS-NF-Italic'), url('/fonts/MesloLGS-NF-Italic.ttf');
+    font-weight: normal;
+    font-display: swap;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'MesloLGS NF';
+    src: local('MesloLGS NF Bold Italic'), local('MesloLGS-NF-Bold-Italic'), url('/fonts/MesloLGS-NF-Bold-Italic.ttf');
+    font-weight: bold;
+    font-display: swap;
+    font-style: italic;
+  }
   * {
     @apply border-border;
   }
