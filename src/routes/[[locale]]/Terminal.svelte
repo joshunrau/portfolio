@@ -3,7 +3,7 @@
   import { onDestroy, onMount } from 'svelte';
   import type { Unsubscriber } from 'svelte/store';
   import { cn } from '$lib/utils/cn';
-  import { interpretCommand, isASCII, LAST_TERMINAL_LOGIN_KEY, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
+  import { isASCII, LAST_TERMINAL_LOGIN_KEY, TERMINAL_GREETER, terminalStore } from '$lib/terminal';
 
   const BACKSPACE = '\u007f';
   const ESCAPE = '\u001b';
@@ -15,12 +15,16 @@
 
   let command: string = '';
 
-  onMount(() => {
+  onMount(async () => {
+    const { exec } = await import('wshell');
+
     const lastLogin = parseInt(window.localStorage.getItem(LAST_TERMINAL_LOGIN_KEY)!);
     const message = Number.isNaN(lastLogin)
       ? 'Welcome to your first session!'
       : `Last login: ${new Date(lastLogin).toString()}`;
     window.localStorage.setItem(LAST_TERMINAL_LOGIN_KEY, Date.now().toString());
+
+    // wshell.greet('Welcome!');
 
     terminal = new X.Terminal({
       allowTransparency: true,
@@ -75,7 +79,7 @@
           terminal.reset();
           terminal.write(PROMPT);
         } else if (cmd) {
-          terminal.write('\r\n' + interpretCommand(cmd, ...args));
+          terminal.write('\r\n' + exec(command));
           terminal.write('\r\n' + PROMPT);
         }
         command = '';

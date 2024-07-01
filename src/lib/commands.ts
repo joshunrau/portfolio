@@ -14,10 +14,6 @@ export function pwd() {
   return cwd;
 }
 
-export function echo(...args: string[]) {
-  return args.join(' ');
-}
-
 export function ls() {
   return '';
 }

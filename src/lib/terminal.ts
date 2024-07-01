@@ -1,7 +1,5 @@
 import { writable } from 'svelte/store';
 
-import { cd, echo, help, ls, pwd, whoami } from './commands';
-
 export const LAST_TERMINAL_LOGIN_KEY = 'LAST_TERMINAL_LOGIN';
 
 export const TERMINAL_GREETER = String.raw`
@@ -40,24 +38,4 @@ export function isAlphaNumeric(str: string) {
     }
   }
   return true;
-}
-
-export function interpretCommand(command: string, ...args: string[]) {
-  command = command.trim();
-  switch (command) {
-    case 'echo':
-      return echo(...args);
-    case 'pwd':
-      return pwd();
-    case 'ls':
-      return ls();
-    case 'whoami':
-      return whoami();
-    case 'help':
-      return help();
-    case 'cd':
-      return cd(...args);
-    default:
-      return `sh: ${command}: command not found`;
-  }
 }
